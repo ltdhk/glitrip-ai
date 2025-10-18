@@ -1,0 +1,818 @@
+{
+  "@@locale": "zh",
+  
+  "appTitle": "轻松旅行",
+  "tagline": "合理规划，轻松出发",
+  
+  "destinations": "目的地",
+  
+  "documents": "文档",
+  
+  "packing": "物品",
+  
+  "profile": "我的",
+  
+  "travel": "旅行",
+  
+  "travelDocuments": "旅行文档",
+  
+  "myProfile": "我的资料",
+  
+  "searchDestinations": "搜索目的地...",
+  
+  "searchDocuments": "搜索文档...",
+  
+  "all": "全部",
+  
+  "visited": "已去过",
+  
+  "planned": "计划中",
+  
+  "wishlist": "愿望清单",
+  
+  "noDestinationsYet": "暂无目的地",
+  
+  "startPlanningNextAdventure": "开始规划您的下一次冒险吧！",
+  
+  "addFirstDestination": "添加第一个目的地",
+  
+  "addDestination": "添加目的地",
+  
+  "editDestination": "编辑目的地",
+  
+  "newDestination": "新目的地",
+  
+  "planYourNextAdventure": "规划您的下一次冒险",
+  
+  "basicInformation": "基本信息",
+  
+  "destinationName": "目的地名称",
+  
+  "country": "国家",
+  
+  "description": "描述",
+  
+  "travelDetails": "旅行详情",
+  
+  "status": "状态",
+  
+  "budgetLevel": "预算级别",
+  
+  "estimatedCost": "预估费用",
+  
+  "recommendedDays": "建议{days}天",
+  "@recommendedDays": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "bestTimeToVisit": "最佳旅行时间",
+  
+  "bestTimeExample": "例如：4月-6月",
+  
+  "startDate": "开始日期",
+  
+  "endDate": "结束日期",
+  
+  "tags": "标签",
+  
+  "addTagAndPressReturn": "添加标签并按回车",
+  
+  "notes": "备注",
+  
+  "travelNotes": "旅行笔记",
+  
+  "save": "保存",
+  
+  "cancel": "取消",
+  
+  "delete": "删除",
+  
+  "edit": "编辑",
+  
+  "retry": "重试",
+  
+  "pleaseEnterDestinationName": "请输入目的地名称",
+  
+  "pleaseEnterCountry": "请输入国家",
+  
+  "pleaseEnterValidCost": "请输入有效的费用",
+  
+  "startDateMustBeBeforeEndDate": "开始日期必须早于结束日期",
+  
+  "destinationsTotal": "{count}个目的地",
+  "@destinationsTotal": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "noDocumentsYet": "暂无文档",
+  
+  "addTravelDocuments": "添加您的旅行文档，如护照、\n签证、机票和预订，以保持其井然有序",
+  
+  "addFirstDocument": "添加第一个文档",
+  
+  "addDocumentsDescription": "添加您的旅行文档，如护照、\n签证、机票和预订，以保持其井然有序",
+  
+  "addDocument": "添加文档",
+  
+  "editDocument": "编辑文档",
+  
+  "documentInformation": "文档信息",
+  
+  "documentName": "文档名称",
+  
+  "documentType": "文档类型",
+  
+  "hasExpiryDate": "有过期日期",
+  
+  "expiryDate": "过期日期",
+  
+  "selectExpiryDate": "选择过期日期",
+  
+  "pleaseEnterDocumentName": "请输入文档名称",
+  
+  "pleaseSelectExpiryDate": "请选择过期日期",
+  
+  "addNotesAboutDocument": "添加关于此文档的备注...",
+  
+  "documentsTotal": "{count}个文档",
+  "@documentsTotal": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "passport": "护照",
+  
+  "idCard": "身份证",
+  
+  "visa": "签证",
+  
+  "insurance": "保险",
+  
+  "ticket": "机票",
+  
+  "hotel": "酒店预订",
+  
+  "hotelBooking": "酒店预订",
+  
+  "carRental": "租车",
+  
+  "other": "其他",
+  
+  "noExpiry": "无过期日期",
+  
+  "expiresSoon": "即将过期",
+  
+  "hasNotes": "有备注",
+  
+  "created": "创建时间",
+  
+  "attachedImages": "附件图片",
+  
+  "noImagesAttached": "无附件图片",
+  
+  "imageCount": "{count, plural, =0{无图片} =1{1张图片} other{{count}张图片}}",
+  "@imageCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "deleteDocument": "删除文档",
+  
+  "deleteDocumentConfirm": "确定要删除\"{name}\"吗？此操作无法撤销。",
+  "@deleteDocumentConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  
+  "documentDeleted": "文档删除成功",
+  
+  "noDocumentsOfType": "暂无{type}",
+  "@noDocumentsOfType": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  
+  "addDocumentsToGetStarted": "添加一些文档开始使用吧！",
+  
+  "images": "图片",
+  
+  "takePhoto": "拍照",
+  
+  "choosePhoto": "选择照片",
+  
+  "errorPickingImage": "选择图片时出错：{error}",
+  "@errorPickingImage": {
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  
+  "packingProgress": "打包进度",
+  
+  "completed": "完成",
+  
+  "clothing": "服装",
+  
+  "electronics": "电子产品",
+  
+  "cosmetics": "化妆品",
+  
+  "health": "药品",
+  
+  "accessories": "配饰",
+  
+  "books": "书籍",
+  
+  "entertainment": "娱乐",
+  
+  "packingTotal": "共{total}项物品",
+  "@packingTotal": {
+    "placeholders": {
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "noItemsInCategory": "暂无{category}物品",
+  "@noItemsInCategory": {
+    "placeholders": {
+      "category": {
+        "type": "String"
+      }
+    }
+  },
+  
+  "addItemsToGetStarted": "添加一些物品开始使用吧！",
+  
+  "noPackingItemsYet": "暂无打包物品",
+  
+  "startAddingItemsToPackingList": "开始添加物品到您的打包清单",
+  
+  "addFirstItem": "添加第一个物品",
+  
+  "addPackingItem": "添加打包物品",
+  
+  "editPackingItem": "编辑打包物品",
+  
+  "itemDetails": "物品详情",
+  
+  "selectDestination": "选择目的地",
+  
+  "itemName": "物品名称",
+  
+  "pleaseEnterItemName": "请输入物品名称",
+  
+  "category": "类别",
+  
+  "quantity": "数量",
+  
+  "essentialItem": "必需品",
+  
+  "noDestinationsAvailable": "没有可用的目的地",
+  
+  "errorLoadingDestinations": "加载目的地时出错",
+  
+  "pleaseSelectDestination": "请选择目的地",
+  
+  "itemAddedSuccessfully": "物品添加成功",
+  
+  "itemUpdatedSuccessfully": "物品更新成功",
+  
+  "errorSavingItem": "保存物品时出错：{error}",
+  "@errorSavingItem": {
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  
+  "travelExplorer": "旅行家",
+  
+  "adventureAwaits": "新的冒险等待着！",
+  
+  "travelStatistics": "旅行统计",
+  
+  "total": "总数",
+  
+  "quickActions": "快捷操作",
+  
+  "addTravelBuddy": "添加旅伴",
+  
+  "travelBuddies": "旅伴",
+  "noTravelBuddiesYet": "暂无旅伴，请先添加旅伴",
+  "addTravelBuddyLink": "添加旅伴",
+  "selectedTravelBuddies": "已选择 {count} 位旅伴",
+  "loadingTravelBuddiesFailed": "加载旅伴失败: {error}",
+  "noTravelBuddyInfo": "暂无旅伴信息",
+  
+  "findSomeoneToTravelWith": "找个人一起旅行",
+  
+  "dontForgetEssentials": "不要忘记必需品",
+  
+  "overview": "总览",
+  
+  "budget": "预算",
+  
+  "itinerary": "行程",
+  
+  "memories": "回忆",
+  
+  "budgetOverview": "预算概览",
+  
+  "tapToManageExpenses": "点击管理支出",
+  
+  "spent": "已花费",
+  
+  "deleteDestination": "删除目的地",
+  
+  "deleteDestinationConfirm": "确定要删除\"{name}\"吗？此操作无法撤销。",
+  "@deleteDestinationConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  
+  "deleteItem": "删除物品",
+  
+  "deleteItemConfirm": "确定要删除\"{name}\"吗？",
+  "@deleteItemConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  
+  "errorSavingDestination": "保存目的地时出错：{error}",
+  "@errorSavingDestination": {
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  
+  "errorSavingDocument": "保存文档时出错：{error}",
+  "@errorSavingDocument": {
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  
+  "noSearchResults": "没有找到匹配\"{query}\"的结果",
+  "@noSearchResults": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  
+  "searchError": "搜索出错：{error}",
+  "@searchError": {
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  
+  "errorLoadingProfile": "加载资料时出错",
+  
+  "featureInDevelopment": "功能开发中...",
+  
+  "itemsTotal": "共{count}个物品",
+  "@itemsTotal": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+
+  "name": "姓名",
+
+  "email": "邮箱",
+
+  "phone": "电话",
+
+  "availability": "可出行时间 (例如：2024年6月)",
+
+  "confirmedToTravel": "确认出行",
+
+  "travelPreferences": "旅行偏好",
+
+  "adventure": "冒险",
+
+  "relaxation": "休闲",
+
+  "culture": "文化",
+
+  "foodie": "美食",
+
+  "nature": "自然",
+
+  "urban": "城市",
+
+  "dreamDestinations": "梦想目的地",
+
+  "addDestinationAndPressReturn": "添加目的地并按回车",
+
+  "pleaseEnterName": "请输入姓名",
+
+  "pleaseEnterEmail": "请输入邮箱",
+
+  "pleaseEnterPhone": "请输入电话",
+
+  "travelBuddyAddedSuccessfully": "旅伴添加成功",
+
+  "travelBuddyUpdatedSuccessfully": "旅伴更新成功",
+
+  "errorSavingTravelBuddy": "保存旅伴时出错：{error}",
+  "@errorSavingTravelBuddy": {
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+
+  "editTravelBuddy": "编辑旅伴",
+
+  "deleteTravelBuddy": "删除旅伴",
+
+  "deleteTravelBuddyConfirm": "确定要删除\"{name}\"吗？此操作无法撤销。",
+  "@deleteTravelBuddyConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+
+  "travelBuddyDeleted": "旅伴删除成功",
+
+  "noTravelBuddiesYet": "暂无旅伴",
+
+  "addTravelBuddiesToGetStarted": "添加一些旅伴开始使用吧！",
+
+  "addFirstTravelBuddy": "添加第一个旅伴",
+
+  "travelBuddiesTotal": "共{count}个旅伴",
+  "@travelBuddiesTotal": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+
+  "searchTravelBuddies": "搜索旅伴...",
+
+  "low": "低",
+
+  "medium": "中",
+
+  "high": "高",
+
+  "budgetLevelCard": "预算级别",
+
+  "comfort": "舒适",
+
+  "luxury": "奢华",
+
+  "budgetOption": "经济",
+
+  "packing": "物品",
+
+  "budgetAndExpenses": "预算与支出",
+
+  "totalBudget": "总预算",
+
+  "remaining": "剩余",
+
+  "used": "已使用",
+
+  "expensesByCategory": "分类支出",
+
+  "recentExpenses": "最近支出",
+
+  "noExpensesYet": "暂无支出",
+
+  "addFirstExpenseToStartTracking": "添加您的第一笔支出开始记录",
+
+  "addExpense": "添加支出",
+
+  "editExpense": "编辑支出",
+
+  "expenseDetails": "支出详情",
+
+  "expenseName": "支出名称",
+
+  "amount": "金额",
+
+  "date": "日期",
+
+  "alreadyPaid": "已支付",
+
+  "accommodation": "住宿",
+
+  "transport": "交通",
+
+  "food": "餐饮",
+
+  "activities": "活动",
+
+  "shopping": "购物",
+
+  "insurance": "保险",
+
+  "visa": "签证",
+
+  "paid": "已付款",
+  
+  "unpaid": "未付款",
+
+  "itinerary": "行程",
+  "noItineraryYet": "暂无行程",
+  "planYourTripDayByDay": "逐日规划您的旅行",
+  "addFirstDay": "添加第一天",
+  "addItineraryDay": "添加行程日",
+  "editItineraryDay": "编辑行程日",
+  "dayInformation": "日期信息",
+  "dayTitle": "日期标题",
+  "date": "日期",
+  "day": "第{number}天",
+  "@day": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "activities": "活动",
+  "addActivity": "添加活动",
+  "time": "时间",
+  "activityTitle": "活动标题",
+  "location": "位置",
+  "cost": "费用",
+  "costOptional": "费用（可选）",
+  "notes": "备注",
+  "alreadyBooked": "已预订",
+  "noActivitiesPlanned": "暂无活动安排",
+  "deleteDay": "删除日期",
+  "deleteDayConfirm": "确定要删除\"{title}\"吗？",
+  "@deleteDayConfirm": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "dayDeletedSuccessfully": "日期删除成功",
+  "timeExample": "时间（例如：9:00 AM）",
+  "days": "{count}天",
+  "@days": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+
+  "packingList": "打包清单",
+  "progress": "进度",
+  "noItemsYet": "暂无物品",
+  "addItemsToPackingList": "将物品添加到打包清单",
+  "essential": "必需品",
+  "deleteItem": "删除物品",
+  "deleteItemConfirm": "确定要删除\"{name}\"吗？",
+  "@deleteItemConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "itemDeletedSuccessfully": "物品删除成功",
+  "quantity": "数量",
+  
+  "travelMemories": "旅行回忆",
+  "noMemoriesYet": "暂无回忆",
+  "addPhotosAndStories": "添加您旅行中的照片和故事",
+  "addFirstMemory": "添加第一个回忆",
+  "addMemory": "添加回忆",
+  "editMemory": "编辑回忆",
+  "deleteMemory": "删除回忆",
+  "deleteMemoryConfirm": "确定要删除\"{title}\"吗？",
+  "@deleteMemoryConfirm": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "memoryDeletedSuccessfully": "回忆删除成功",
+  "memoryDetails": "回忆详情",
+  "memoryTitle": "回忆标题",
+  "rating": "评分",
+  "description": "描述",
+  "shareYourExperience": "分享您的体验...",
+
+  "items": "项目",
+
+  "currentTrips": "当前行程",
+  "templates": "模板",
+  "history": "历史记录",
+  "viewDetails": "查看详情",
+  "addItems": "添加物品",
+  "noCurrentTrips": "暂无当前行程",
+  "planTripToStartPacking": "规划行程开始打包",
+  "noTemplatesYet": "暂无模板",
+  "createTemplateToReuse": "创建模板以重复使用物品",
+  "noCompletedTrips": "暂无已完成行程",
+  "completedTripsWillAppearHere": "已完成的行程将显示在这里",
+
+  "pleaseEnterExpenseName": "请输入支出名称",
+
+  "pleaseEnterAmount": "请输入金额",
+
+  "expenseAddedSuccessfully": "支出添加成功",
+
+  "expenseUpdatedSuccessfully": "支出更新成功",
+
+  "errorSavingExpense": "保存支出时出错：{error}",
+  "@errorSavingExpense": {
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+
+  "deleteExpense": "删除支出",
+
+  "deleteExpenseConfirm": "确定要删除\"{name}\"吗？此操作无法撤销。",
+  "@deleteExpenseConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+
+  "viewPacking": "查看打包",
+  "addFromTemplate": "从模板添加",
+  "addFromTemplateDescription": "从模板中选择物品快速添加到打包清单",
+  "selectFromTemplate": "从模板选择",
+  "addSelected": "添加选中",
+  "errorLoadingItems": "加载物品时出错",
+  "errorLoadingStats": "加载统计时出错",
+  "errorLoadingTemplates": "加载模板时出错",
+  "totalItems": "总物品",
+  "packed": "已打包",
+  "remaining": "剩余",
+  "selectAllTemplateItems": "选择所有模板物品",
+  "createTemplateFirst": "请先创建模板",
+  "pleaseSelectItems": "请选择物品",
+  "addingItems": "正在添加物品...",
+  "creatingTemplateItem": "正在创建模板物品",
+  "addToDestination": "添加到目的地",
+  "addItemToSpecificDestination": "添加物品到特定目的地",
+  "addToTemplate": "添加到模板",
+  "addItemToTemplate": "添加物品到模板",
+  "deleteTemplateItem": "删除模板物品",
+  "deleteTemplateItemConfirm": "确定要删除模板物品\"{name}\"吗？",
+  "@deleteTemplateItemConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "templateItemDeletedSuccessfully": "模板物品删除成功",
+  "featureComingSoon": "功能即将推出",
+  "select": "选择",
+  "errorDeletingItem": "删除物品时出错：{error}",
+  "@errorDeletingItem": {
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "itemsAddedSuccessfully": "成功添加{count}个物品",
+  "@itemsAddedSuccessfully": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "errorAddingItems": "添加物品时出错：{error}",
+  "@errorAddingItems": {
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+
+  "aiSmartCreateDestination": "AI智能创建目的地",
+  "aiPlanPreview": "AI规划预览",
+  "letAiPlanYourTrip": "让AI帮您规划旅行",
+  "fourStepsAutoGenerate": "只需4步，AI自动生成完整行程",
+  "aiPlanning": "AI正在为您规划行程...",
+  "aiPlanningTime": "这可能需要10-30秒",
+  "pleaseSelectTravelDates": "请选择出行日期",
+  "aiFailed": "AI生成失败",
+  "remainingAiPlans": "剩余 {count} 次AI规划",
+  "@remainingAiPlans": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "aiQuotaExhausted": "AI规划次数已用尽，请升级VIP",
+  "destinationNameLabel": "1. 目的地名称",
+  "destinationNameHint": "例如：东京、巴黎、纽约...",
+  "budgetLevelLabel": "2. 预算级别",
+  "budgetEconomy": "经济",
+  "budgetComfort": "舒适",
+  "budgetLuxury": "奢华",
+  "travelDatesLabel": "3. 出行日期",
+  "startDateLabel": "开始日期",
+  "endDateLabel": "结束日期",
+  "selectDate": "选择日期",
+  "aiSmartPlanButton": "4. AI智能规划",
+  "aiAutoDetectCountry": "* AI将自动识别目的地所在国家并生成详细的旅行计划",
+  "planGeneratedSuccessfully": "规划生成成功！",
+  "savePlan": "保存计划",
+  "savingPlan": "正在保存...",
+  "planSavedSuccess": "计划保存成功！",
+  "dayNumberLabel": "第{number}天",
+  "@dayNumberLabel": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "packagedItems": "打包物品",
+  "todoItems": "待办事项",
+  "detailedItinerary": "详细行程",
+  "aiGeneratedPlan": "AI生成的旅行计划",
+  "daysCount": "{count}天",
+  "@daysCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "itemsCount": "{count} 项",
+  "@itemsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "categoryClothing": "衣物",
+  "categoryElectronics": "电子产品",
+  "categoryCosmetics": "洗护用品",
+  "categoryHealth": "健康用品",
+  "categoryAccessories": "配件",
+  "categoryBooks": "书籍",
+  "categoryEntertainment": "娱乐",
+  "categoryOther": "其他"
+}

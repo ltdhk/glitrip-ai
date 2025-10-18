@@ -1,0 +1,36 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  iOS原生广告 - 快速开始
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📦 已创建的文件：
+├── Runner/NativeAdFactory.swift      (原生广告工厂)
+├── Runner/NativeAdView.xib           (广告UI布局)
+└── Runner/AppDelegate.swift          (已更新)
+
+⚡ 快速设置（仅需2分钟）：
+
+1️⃣  打开Xcode项目：
+    $ open ios/Runner.xcworkspace
+
+2️⃣  添加文件到项目：
+    • 右键点击左侧的 Runner 文件夹
+    • 选择 "Add Files to Runner..."
+    • 选择这两个文件：
+      ✓ NativeAdFactory.swift
+      ✓ NativeAdView.xib
+    • 勾选 "Copy items if needed" 和 "Runner" target
+    • 点击 Add
+
+3️⃣  完成！运行应用：
+    $ flutter run
+
+📱 测试方法：
+    1. 打开应用
+    2. 进入"文档"页面
+    3. 添加2个以上文档
+    4. 查看原生广告（显示在第二个分组后）
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+💡 详细说明请查看：../IOS原生广告设置说明.md
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+

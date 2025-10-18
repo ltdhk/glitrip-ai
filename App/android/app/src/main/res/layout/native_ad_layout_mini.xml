@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.gms.ads.nativead.NativeAdView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:padding="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="128dp">
+
+        <!-- 广告标识 -->
+        <TextView
+            android:id="@+id/ad_badge_mini"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ad"
+            android:textSize="7sp"
+            android:textColor="#00BCD4"
+            android:textStyle="bold"
+            android:background="#E0F7FA"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:paddingTop="1dp"
+            android:paddingBottom="1dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <!-- 图标 -->
+        <ImageView
+            android:id="@+id/ad_app_icon_mini"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/ad_badge_mini"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="4dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="广告图标" />
+
+        <!-- 右侧媒体视图 - 调整为120x120dp以满足AdMob要求 -->
+        <FrameLayout
+            android:id="@+id/media_container_mini"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp">
+            
+            <com.google.android.gms.ads.nativead.MediaView
+                android:id="@+id/ad_media_mini"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </FrameLayout>
+
+        <!-- 中间内容区域 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ad_badge_mini"
+            android:layout_toEndOf="@id/ad_app_icon_mini"
+            android:layout_toStartOf="@id/media_container_mini"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:orientation="vertical">
+
+            <!-- 标题 -->
+            <TextView
+                android:id="@+id/ad_headline_mini"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:ellipsize="end" />
+
+            <!-- 描述 -->
+            <TextView
+                android:id="@+id/ad_body_mini"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textSize="10sp"
+                android:textColor="#666666"
+                android:maxLines="2"
+                android:ellipsize="end" />
+        </LinearLayout>
+
+        <!-- 操作按钮 - 放在左下方 -->
+        <Button
+            android:id="@+id/ad_call_to_action_mini"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_below="@id/ad_app_icon_mini"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="4dp"
+            android:minWidth="70dp"
+            android:minHeight="20dp"
+            android:textSize="10sp"
+            android:textColor="#FFFFFF"
+            android:background="#00BCD4"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp" />
+    </RelativeLayout>
+</com.google.android.gms.ads.nativead.NativeAdView>

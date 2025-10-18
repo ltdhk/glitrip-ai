@@ -1,0 +1,916 @@
+{
+  "@@locale": "en",
+  
+  "appTitle": "GliTrip",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  
+  "destinations": "Destinations",
+  "@destinations": {
+    "description": "Destinations tab title"
+  },
+  
+  "documents": "Documents",
+  "@documents": {
+    "description": "Documents tab title"
+  },
+  
+  "packing": "Packing",
+  "@packing": {
+    "description": "Packing tab title"
+  },
+  
+  "profile": "Profile",
+  "@profile": {
+    "description": "Profile tab title"
+  },
+  
+  "travel": "Travel",
+  "@travel": {
+    "description": "Travel page title"
+  },
+  
+  "travelDocuments": "Travel Documents",
+  "@travelDocuments": {
+    "description": "Travel documents page title"
+  },
+  
+  "myProfile": "My Profile",
+  "@myProfile": {
+    "description": "My profile page title"
+  },
+  
+  "searchDestinations": "Search destinations...",
+  "@searchDestinations": {
+    "description": "Search hint for destinations"
+  },
+  
+  "searchDocuments": "Search documents...",
+  "@searchDocuments": {
+    "description": "Search hint for documents"
+  },
+  
+  "all": "All",
+  "@all": {
+    "description": "All filter option"
+  },
+  
+  "visited": "Visited",
+  "@visited": {
+    "description": "Visited status"
+  },
+  
+  "planned": "Planned", 
+  "@planned": {
+    "description": "Planned status"
+  },
+  
+  "wishlist": "Wishlist",
+  "@wishlist": {
+    "description": "Wishlist status"
+  },
+  
+  "noDestinationsYet": "No destinations yet",
+  "@noDestinationsYet": {
+    "description": "Empty state message for destinations"
+  },
+  
+  "startPlanningNextAdventure": "Start planning your next adventure!",
+  "@startPlanningNextAdventure": {
+    "description": "Empty state subtitle for destinations"
+  },
+  
+  "addFirstDestination": "Add First Destination",
+  "@addFirstDestination": {
+    "description": "Button text to add first destination"
+  },
+  
+  "addDestination": "Add Destination",
+  "@addDestination": {
+    "description": "Add destination button"
+  },
+  
+  "editDestination": "Edit Destination",
+  "@editDestination": {
+    "description": "Edit destination title"
+  },
+  
+  "newDestination": "New Destination",
+  "@newDestination": {
+    "description": "New destination header"
+  },
+  
+  "planYourNextAdventure": "Plan your next adventure",
+  "@planYourNextAdventure": {
+    "description": "New destination subtitle"
+  },
+  
+  "basicInformation": "BASIC INFORMATION",
+  "@basicInformation": {
+    "description": "Basic information section header"
+  },
+  
+  "destinationName": "Destination Name",
+  "@destinationName": {
+    "description": "Destination name field label"
+  },
+  
+  "country": "Country",
+  "@country": {
+    "description": "Country field label"
+  },
+  
+  "description": "Description",
+  "@description": {
+    "description": "Description field label"
+  },
+  
+  "travelDetails": "TRAVEL DETAILS",
+  "@travelDetails": {
+    "description": "Travel details section header"
+  },
+  
+  "status": "Status",
+  "@status": {
+    "description": "Status field label"
+  },
+  
+  "budgetLevel": "Budget Level",
+  "@budgetLevel": {
+    "description": "Budget level field label"
+  },
+  
+  "estimatedCost": "Estimated Cost",
+  "@estimatedCost": {
+    "description": "Estimated cost field label"
+  },
+  
+  "recommendedDays": "{days} days recommended",
+  "@recommendedDays": {
+    "description": "Recommended days text",
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "bestTimeToVisit": "BEST TIME TO VISIT",
+  "@bestTimeToVisit": {
+    "description": "Best time section header"
+  },
+  
+  "bestTimeExample": "e.g., April - June",
+  "@bestTimeExample": {
+    "description": "Best time example text"
+  },
+  
+  "startDate": "Start Date",
+  "@startDate": {
+    "description": "Start date label"
+  },
+  
+  "endDate": "End Date",
+  "@endDate": {
+    "description": "End date label"
+  },
+
+  "searchDestinations": "Search destinations...",
+  "@searchDestinations": {
+    "description": "Search destinations..."
+  },
+
+  "tags": "TAGS",
+  "@tags": {
+    "description": "Tags section header"
+  },
+  
+  "addTagAndPressReturn": "Add tag and press return",
+  "@addTagAndPressReturn": {
+    "description": "Tag input hint"
+  },
+  
+  "notes": "NOTES",
+  "@notes": {
+    "description": "Notes section header"
+  },
+  
+  "travelNotes": "Travel Notes",
+  "@travelNotes": {
+    "description": "Travel notes field label"
+  },
+  
+  "save": "Save",
+  "@save": {
+    "description": "Save button text"
+  },
+  
+  "cancel": "Cancel",
+  "@cancel": {
+    "description": "Cancel button text"
+  },
+  
+  "delete": "Delete",
+  "@delete": {
+    "description": "Delete button text"
+  },
+  
+  "edit": "Edit",
+  "@edit": {
+    "description": "Edit button text"
+  },
+  
+  "retry": "Retry",
+  "@retry": {
+    "description": "Retry button text"
+  },
+  
+  "pleaseEnterDestinationName": "Please enter destination name",
+  "@pleaseEnterDestinationName": {
+    "description": "Validation message for destination name"
+  },
+  
+  "pleaseEnterCountry": "Please enter country",
+  "@pleaseEnterCountry": {
+    "description": "Validation message for country"
+  },
+  
+  "noDocumentsYet": "No Documents Yet",
+  "@noDocumentsYet": {
+    "description": "Empty state for documents"
+  },
+  
+  "addTravelDocuments": "Add your travel documents like passports,\nvisas, tickets, and bookings to keep them\norganized",
+  "@addTravelDocuments": {
+    "description": "Empty state description for documents"
+  },
+  
+  "addFirstDocument": "Add First Document",
+  "@addFirstDocument": {
+    "description": "Add first document button"
+  },
+  
+  "addDocument": "Add Document",
+  "@addDocument": {
+    "description": "Add document button"
+  },
+  
+  "editDocument": "Edit Document",
+  "@editDocument": {
+    "description": "Edit document title"
+  },
+  
+  "documentInformation": "DOCUMENT INFORMATION",
+  "@documentInformation": {
+    "description": "Document information section"
+  },
+  
+  "documentName": "Document Name",
+  "@documentName": {
+    "description": "Document name field"
+  },
+  
+  "documentType": "Document Type",
+  "@documentType": {
+    "description": "Document type field"
+  },
+  
+  "hasExpiryDate": "Has Expiry Date",
+  "@hasExpiryDate": {
+    "description": "Has expiry date toggle"
+  },
+  
+  "expiryDate": "Expiry Date",
+  "@expiryDate": {
+    "description": "Expiry date field"
+  },
+  
+  "selectExpiryDate": "Select expiry date",
+  "@selectExpiryDate": {
+    "description": "Select expiry date hint"
+  },
+  
+  "pleaseEnterDocumentName": "Please enter document name",
+  "@pleaseEnterDocumentName": {
+    "description": "Validation for document name"
+  },
+  
+  "pleaseSelectExpiryDate": "Please select an expiry date",
+  "@pleaseSelectExpiryDate": {
+    "description": "Validation for expiry date"
+  },
+  
+  "passport": "Passport",
+  "@passport": {
+    "description": "Passport document type"
+  },
+  
+  "idCard": "ID Card",
+  "@idCard": {
+    "description": "ID Card document type"
+  },
+  
+  "visa": "Visa",
+  "@visa": {
+    "description": "Visa document type"
+  },
+  
+  "insurance": "Insurance",
+  "@insurance": {
+    "description": "Insurance document type"
+  },
+  
+  "ticket": "Ticket",
+  "@ticket": {
+    "description": "Ticket document type"
+  },
+  
+  "tickets": "Tickets",
+  "@tickets": {
+    "description": "Tickets plural"
+  },
+  
+  "hotel": "Hotel Booking",
+  "@hotel": {
+    "description": "Hotel booking document type"
+  },
+  
+  "carRental": "Car Rental",
+  "@carRental": {
+    "description": "Car rental document type"
+  },
+  
+  "other": "Other",
+  "@other": {
+    "description": "Other document type"
+  },
+  
+  "noExpiry": "No expiry",
+  "@noExpiry": {
+    "description": "No expiry text"
+  },
+  
+  "expiresSoon": "Expires soon",
+  "@expiresSoon": {
+    "description": "Expires soon badge"
+  },
+  
+  "hasNotes": "Has notes",
+  "@hasNotes": {
+    "description": "Has notes badge"
+  },
+  
+  "created": "Created",
+  "@created": {
+    "description": "Created date label"
+  },
+  
+  "attachedImages": "Attached Images",
+  "@attachedImages": {
+    "description": "Attached images section label"
+  },
+  
+  "noImagesAttached": "No images attached",
+  "@noImagesAttached": {
+    "description": "No images attached message"
+  },
+  
+  "imageCount": "{count, plural, =0{No images} =1{1 image} other{{count} images}}",
+  "@imageCount": {
+    "description": "Image count text",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "deleteDocument": "Delete Document",
+  "@deleteDocument": {
+    "description": "Delete document button"
+  },
+  
+  "deleteDocumentConfirm": "Are you sure you want to delete \"{name}\"? This action cannot be undone.",
+  "@deleteDocumentConfirm": {
+    "description": "Delete document confirmation message",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  
+  "documentDeleted": "Document deleted successfully",
+  "@documentDeleted": {
+    "description": "Document deleted success message"
+  },
+  
+  "noDocumentsOfType": "No {type} Yet",
+  "@noDocumentsOfType": {
+    "description": "No documents of specific type message",
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  
+  "addDocumentsToGetStarted": "Add some documents to get started!",
+  "@addDocumentsToGetStarted": {
+    "description": "Empty state description for specific document types"
+  },
+  
+  "packing": "Packing",
+  "@packing": {
+    "description": "Packing page title"
+  },
+  
+  "packingProgress": "Packing Progress",
+  "@packingProgress": {
+    "description": "Packing progress section title"
+  },
+  
+  "completed": "Complete",
+  "@completed": {
+    "description": "Complete status text"
+  },
+  
+  "all": "All",
+  "@all": {
+    "description": "All tab label"
+  },
+  
+  "clothing": "Clothing",
+  "@clothing": {
+    "description": "Clothing category"
+  },
+  
+  "electronics": "Electronics",
+  "@electronics": {
+    "description": "Electronics category"
+  },
+  
+  "cosmetics": "Cosmetics",
+  "@cosmetics": {
+    "description": "Cosmetics category"
+  },
+  
+  "health": "Health",
+  "@health": {
+    "description": "Health category"
+  },
+  
+  "accessories": "Accessories",
+  "@accessories": {
+    "description": "Accessories category"
+  },
+  
+  "books": "Books",
+  "@books": {
+    "description": "Books category"
+  },
+  
+  "entertainment": "Entertainment",
+  "@entertainment": {
+    "description": "Entertainment category"
+  },
+  
+  "packingTotal": "{total} items total",
+  "@packingTotal": {
+    "description": "Total packing items count",
+    "placeholders": {
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "noItemsInCategory": "No {category} items yet",
+  "@noItemsInCategory": {
+    "description": "No items in specific category message",
+    "placeholders": {
+      "category": {
+        "type": "String"
+      }
+    }
+  },
+  
+  "addItemsToGetStarted": "Add some items to get started!",
+  "@addItemsToGetStarted": {
+    "description": "Empty state description for specific categories"
+  },
+  
+  "noPackingItemsYet": "No packing items yet",
+  "@noPackingItemsYet": {
+    "description": "Empty state for packing items"
+  },
+  
+  "startAddingItemsToPackingList": "Start adding items to your packing list",
+  "@startAddingItemsToPackingList": {
+    "description": "Empty state description for packing"
+  },
+  
+  "addFirstItem": "Add First Item",
+  "@addFirstItem": {
+    "description": "Add first item button"
+  },
+  
+  "addPackingItem": "Add Packing Item",
+  "@addPackingItem": {
+    "description": "Add packing item button"
+  },
+  
+  "editPackingItem": "Edit Packing Item",
+  "@editPackingItem": {
+    "description": "Edit packing item title"
+  },
+  
+  "itemDetails": "ITEM DETAILS",
+  "@itemDetails": {
+    "description": "Item details section"
+  },
+  
+  "itemName": "Item name",
+  "@itemName": {
+    "description": "Item name field"
+  },
+  
+  "category": "Category",
+  "@category": {
+    "description": "Category field"
+  },
+  
+  "quantityWithCount": "Quantity: {count}",
+  "@quantityWithCount": {
+    "description": "Quantity text with count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "essentialItem": "Essential item",
+  "@essentialItem": {
+    "description": "Essential item toggle"
+  },
+  
+  "destination": "DESTINATION",
+  "@destination": {
+    "description": "Destination section"
+  },
+  
+  "forDestination": "For Destination",
+  "@forDestination": {
+    "description": "For destination field"
+  },
+  
+  "general": "General",
+  "@general": {
+    "description": "General destination option"
+  },
+  
+  "pleaseEnterItemName": "Please enter item name",
+  "@pleaseEnterItemName": {
+    "description": "Validation for item name"
+  },
+  
+  "clothing": "Clothing",
+  "@clothing": {
+    "description": "Clothing category"
+  },
+  
+  "electronics": "Electronics",
+  "@electronics": {
+    "description": "Electronics category"
+  },
+  
+  "cosmetics": "Cosmetics",
+  "@cosmetics": {
+    "description": "Cosmetics category"
+  },
+  
+  "health": "Health",
+  "@health": {
+    "description": "Health category"
+  },
+  
+  "accessories": "Accessories",
+  "@accessories": {
+    "description": "Accessories category"
+  },
+  
+  "books": "Books",
+  "@books": {
+    "description": "Books category"
+  },
+  
+  "entertainment": "Entertainment",
+  "@entertainment": {
+    "description": "Entertainment category"
+  },
+  
+  "essential": "Essential",
+  "@essential": {
+    "description": "Essential badge"
+  },
+  
+  "packingProgress": "Packing Progress",
+  "@packingProgress": {
+    "description": "Packing progress header"
+  },
+  
+  "complete": "{percent}% Complete",
+  "@complete": {
+    "description": "Progress complete text",
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "travelExplorer": "Travel Explorer",
+  "@travelExplorer": {
+    "description": "Default user name"
+  },
+  
+  "adventureAwaits": "Adventure awaits!",
+  "@adventureAwaits": {
+    "description": "Default user signature"
+  },
+  
+  "travelStatistics": "Travel Statistics",
+  "@travelStatistics": {
+    "description": "Travel statistics header"
+  },
+  
+  "total": "Total",
+  "@total": {
+    "description": "Total statistics"
+  },
+  
+  "quickActions": "Quick Actions",
+  "@quickActions": {
+    "description": "Quick actions header"
+  },
+  
+  "addTravelBuddy": "Add Travel Buddy",
+  "@addTravelBuddy": {
+    "description": "Add travel buddy action"
+  },
+  
+  "findSomeoneToTravelWith": "Find someone to travel with",
+  "@findSomeoneToTravelWith": {
+    "description": "Add travel buddy description"
+  },
+  
+  "dontForgetEssentials": "Don't forget essentials",
+  "@dontForgetEssentials": {
+    "description": "Add packing item description"
+  },
+  
+  "overview": "Overview",
+  "@overview": {
+    "description": "Overview tab"
+  },
+  
+  "budget": "Budget",
+  "@budget": {
+    "description": "Budget tab"
+  },
+  
+  "itinerary": "Itinerary",
+  "@itinerary": {
+    "description": "Itinerary tab"
+  },
+  
+  "memories": "Memories",
+  "@memories": {
+    "description": "Memories tab"
+  },
+  
+  "budgetOverview": "Budget Overview",
+  "@budgetOverview": {
+    "description": "Budget overview header"
+  },
+  
+  "tapToManageExpenses": "Tap to manage expenses",
+  "@tapToManageExpenses": {
+    "description": "Budget management hint"
+  },
+  
+  "spent": "Spent",
+  "@spent": {
+    "description": "Spent amount label"
+  },
+  
+  "deleteDestination": "Delete Destination",
+  "@deleteDestination": {
+    "description": "Delete destination dialog title"
+  },
+  
+  "deleteDestinationConfirm": "Are you sure you want to delete \"{name}\"? This action cannot be undone.",
+  "@deleteDestinationConfirm": {
+    "description": "Delete destination confirmation",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  
+  "deleteItem": "Delete Item",
+  "@deleteItem": {
+    "description": "Delete item dialog title"
+  },
+  
+  "deleteItemConfirm": "Are you sure you want to delete \"{name}\"?",
+  "@deleteItemConfirm": {
+    "description": "Delete item confirmation",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  
+  "errorSavingDestination": "Error saving destination: {error}",
+  "@errorSavingDestination": {
+    "description": "Error message for saving destination",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  
+  "errorSavingDocument": "Error saving document: {error}",
+  "@errorSavingDocument": {
+    "description": "Error message for saving document",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  
+  "errorSavingItem": "Error saving item: {error}",
+  "@errorSavingItem": {
+    "description": "Error message for saving item",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  
+  "noSearchResults": "No results found for \"{query}\"",
+  "@noSearchResults": {
+    "description": "No search results message",
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  
+  "searchError": "Search error: {error}",
+  "@searchError": {
+    "description": "Search error message",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  
+  "errorLoadingProfile": "Error loading profile",
+  "@errorLoadingProfile": {
+    "description": "Error loading profile message"
+  },
+  
+  "featureInDevelopment": "Feature in development...",
+  "@featureInDevelopment": {
+    "description": "Feature in development message"
+  },
+  
+  "itemsTotal": "{count} items total",
+  "@itemsTotal": {
+    "description": "Items total count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "destinationsTotal": "{count} destinations",
+  "@destinationsTotal": {
+    "description": "Destinations total count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "editDestination": "Edit Destination",
+  "newDestination": "New Destination",
+  "planYourNextAdventure": "Plan your next adventure",
+  "basicInformation": "BASIC INFORMATION",
+  "destinationName": "Destination Name",
+  "pleaseEnterDestinationName": "Please enter destination name",
+  "country": "Country",
+  "pleaseEnterCountry": "Please enter country",
+  "description": "Description",
+  "travelDetails": "TRAVEL DETAILS",
+  "status": "Status",
+  "budgetLevel": "Budget Level",
+  "estimatedCost": "Estimated Cost",
+  "recommendedDays": "{count} days recommended",
+  "@recommendedDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "bestTimeToVisit": "BEST TIME TO VISIT",
+  "bestTimeExample": "e.g., April - June",
+  "startDate": "Start Date",
+  "endDate": "End Date",
+  "tags": "TAGS",
+  "addTagAndPressReturn": "Add tag and press return",
+  "notes": "NOTES",
+  "travelNotes": "Travel Notes",
+  "save": "Save",
+  "pleaseEnterValidCost": "Please enter a valid cost",
+  "startDateMustBeBeforeEndDate": "Start date must be before end date",
+  "documentsTotal": "{count} documents",
+  "@documentsTotal": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "searchDocuments": "Search documents...",
+  "passport": "Passport",
+  "idCard": "ID Card",
+  "visa": "Visa",
+  "insurance": "Insurance",
+  "ticket": "Ticket",
+  "hotel": "Hotel",
+  "carRental": "Car Rental",
+  "other": "Other",
+  "noDocumentsYet": "No Documents Yet",
+  "addDocumentsDescription": "Add your travel documents like passports,\nvisas, tickets, and bookings to keep them\norganized",
+  "addFirstDocument": "Add First Document",
+  "editDocument": "Edit Document",
+  "addDocument": "Add Document",
+  "documentInformation": "DOCUMENT INFORMATION",
+  "documentName": "Document Name",
+  "pleaseEnterDocumentName": "Please enter document name",
+  "documentType": "Document Type",
+  "hasExpiryDate": "Has Expiry Date",
+  "expiryDate": "Expiry Date",
+  "selectExpiryDate": "Select expiry date",
+  "addNotesAboutDocument": "Add notes about this document...",
+  "pleaseSelectExpiryDate": "Please select an expiry date",
+  "hotelBooking": "Hotel Booking",
+  "images": "IMAGES",
+  "takePhoto": "Take Photo",
+  "choosePhoto": "Choose Photo",
+  "errorPickingImage": "Error picking image: {error}",
+  "@errorPickingImage": {
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  
+  "addPackingItem": "Add Packing Item",
+  "editPackingItem": "Edit Packing Item",
+  "itemDetails": "Item Details",
+  "selectDestination": "Select Destination",
+  "itemName": "Item Name",
+  "pleaseEnterItemName": "Please enter item name",
+  "category": "Category",
+  "quantity": "Quantity",
+  "essentialItem": "Essential Item",
+  "noDestinationsAvailable": "No destinations available",
+  "errorLoadingDestinations": "Error loading destinations",
+  "pleaseSelectDestination": "Please select a destination",
+  "itemAddedSuccessfully": "Item added successfully",
+  "itemUpdatedSuccessfully": "Item updated successfully",
+  "errorSavingItem": "Error saving item: {error}",
+  "@errorSavingItem": {
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  }
+}

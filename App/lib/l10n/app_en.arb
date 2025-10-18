@@ -1,0 +1,818 @@
+{
+  "@@locale": "en",
+  
+  "appTitle": "Glitrip Planner",
+  "tagline": "Travel, Light.",
+  
+  "destinations": "Destinations",
+  
+  "documents": "Documents",
+  
+  "packing": "Packing",
+  
+  "profile": "Profile",
+  
+  "travel": "Travel",
+  
+  "travelDocuments": "Travel Documents",
+  
+  "myProfile": "My Profile",
+  
+  "searchDestinations": "Search destinations...",
+  
+  "searchDocuments": "Search documents...",
+  
+  "all": "All",
+  
+  "visited": "Visited",
+  
+  "planned": "Planned",
+  
+  "wishlist": "Wishlist",
+  
+  "noDestinationsYet": "No destinations yet",
+  
+  "startPlanningNextAdventure": "Start planning your next adventure!",
+  
+  "addFirstDestination": "Add first destination",
+  
+  "addDestination": "Add Destination",
+  
+  "editDestination": "Edit Destination",
+  
+  "newDestination": "New Destination",
+  
+  "planYourNextAdventure": "Plan Your Next Adventure",
+  
+  "basicInformation": "Basic Information",
+  
+  "destinationName": "Destination Name",
+  
+  "country": "Country",
+  
+  "description": "Description",
+  
+  "travelDetails": "Travel Details",
+  
+  "status": "Status",
+  
+  "budgetLevel": "Budget Level",
+  
+  "estimatedCost": "Estimated Cost",
+  
+  "recommendedDays": "Recommended {days} days",
+  "@recommendedDays": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "bestTimeToVisit": "Best Time to Visit",
+  
+  "bestTimeExample": "e.g., April-June",
+  
+  "startDate": "Start Date",
+  
+  "endDate": "End Date",
+  
+  "tags": "Tags",
+  
+  "addTagAndPressReturn": "Add tag and press return",
+  
+  "notes": "Notes",
+  
+  "travelNotes": "Travel Notes",
+  
+  "save": "Save",
+  
+  "cancel": "Cancel",
+  
+  "delete": "Delete",
+  
+  "edit": "Edit",
+  
+  "retry": "Retry",
+  
+  "pleaseEnterDestinationName": "Please enter destination name",
+  
+  "pleaseEnterCountry": "Please enter country",
+  
+  "pleaseEnterValidCost": "Please enter valid cost",
+  
+  "startDateMustBeBeforeEndDate": "Start date must be before end date",
+  
+  "destinationsTotal": "{count} destinations",
+  "@destinationsTotal": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "noDocumentsYet": "No documents yet",
+  
+  "addTravelDocuments": "Add your travel documents like passport,\nvisa, tickets and bookings to keep them organized",
+  
+  "addFirstDocument": "Add first document",
+  
+  "addDocumentsDescription": "Add your travel documents like passport,\nvisa, tickets and bookings to keep them organized",
+  
+  "addDocument": "Add Document",
+  
+  "editDocument": "Edit Document",
+  
+  "documentInformation": "Document Information",
+  
+  "documentName": "Document Name",
+  
+  "documentType": "Document Type",
+  
+  "hasExpiryDate": "Has Expiry Date",
+  
+  "expiryDate": "Expiry Date",
+  
+  "selectExpiryDate": "Select expiry date",
+  
+  "pleaseEnterDocumentName": "Please enter document name",
+  
+  "pleaseSelectExpiryDate": "Please select expiry date",
+  
+  "addNotesAboutDocument": "Add notes about this document...",
+  
+  "documentsTotal": "{count} documents",
+  "@documentsTotal": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "passport": "Passport",
+  
+  "idCard": "ID Card",
+  
+  "visa": "Visa",
+  
+  "insurance": "Insurance",
+  
+  "ticket": "Ticket",
+  
+  "hotel": "Hotel Booking",
+  
+  "hotelBooking": "Hotel Booking",
+  
+  "carRental": "Car Rental",
+  
+  "other": "Other",
+  
+  "noExpiry": "No expiry",
+  
+  "expiresSoon": "Expires soon",
+  
+  "hasNotes": "Has notes",
+  
+  "created": "Created",
+  
+  "attachedImages": "Attached Images",
+  
+  "noImagesAttached": "No images attached",
+  
+  "imageCount": "{count, plural, =0{No images} =1{1 image} other{{count} images}}",
+  "@imageCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "deleteDocument": "Delete Document",
+  
+  "deleteDocumentConfirm": "Are you sure you want to delete \"{name}\"? This action cannot be undone.",
+  "@deleteDocumentConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  
+  "documentDeleted": "Document deleted successfully",
+  
+  "noDocumentsOfType": "No {type} documents yet",
+  "@noDocumentsOfType": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  
+  "addDocumentsToGetStarted": "Add some documents to get started!",
+  
+  "images": "Images",
+  
+  "takePhoto": "Take Photo",
+  
+  "choosePhoto": "Choose Photo",
+  
+  "errorPickingImage": "Error picking image: {error}",
+  "@errorPickingImage": {
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  
+  "packingProgress": "Packing Progress",
+  
+  "completed": "Complete",
+  
+  "clothing": "Clothing",
+  
+  "electronics": "Electronics",
+  
+  "cosmetics": "Cosmetics",
+  
+  "health": "Health",
+  
+  "accessories": "Accessories",
+  
+  "books": "Books",
+  
+  "entertainment": "Entertainment",
+  
+  "packingTotal": "{total} items total",
+  "@packingTotal": {
+    "placeholders": {
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "noItemsInCategory": "No {category} items yet",
+  "@noItemsInCategory": {
+    "placeholders": {
+      "category": {
+        "type": "String"
+      }
+    }
+  },
+  
+  "addItemsToGetStarted": "Add some items to get started!",
+  
+  "noPackingItemsYet": "No packing items yet",
+  
+  "startAddingItemsToPackingList": "Start adding items to your packing list",
+  
+  "addFirstItem": "Add first item",
+  
+  "addPackingItem": "Add Packing Item",
+  
+  "editPackingItem": "Edit Packing Item",
+  
+  "itemDetails": "Item Details",
+  
+  "selectDestination": "Select Destination",
+  
+  "itemName": "Item Name",
+  
+  "pleaseEnterItemName": "Please enter item name",
+  
+  "category": "Category",
+  
+  "quantity": "Quantity",
+  
+  "essentialItem": "Essential Item",
+  
+  "noDestinationsAvailable": "No destinations available",
+  
+  "errorLoadingDestinations": "Error loading destinations",
+  
+  "pleaseSelectDestination": "Please select a destination",
+  
+  "itemAddedSuccessfully": "Item added successfully",
+  
+  "itemUpdatedSuccessfully": "Item updated successfully",
+  
+  "errorSavingItem": "Error saving item: {error}",
+  "@errorSavingItem": {
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  
+  "travelExplorer": "Travel Explorer",
+  
+  "adventureAwaits": "Adventure awaits!",
+  
+  "travelStatistics": "Travel Statistics",
+  
+  "total": "Total",
+  
+  "quickActions": "Quick Actions",
+  
+  "addTravelBuddy": "Add Travel Buddy",
+  
+  "travelBuddies": "Travel Buddies",
+  "noTravelBuddiesYet": "No travel buddies yet, please add some first",
+  "addTravelBuddyLink": "Add Travel Buddy",
+  "selectedTravelBuddies": "Selected {count} travel buddies",
+  "loadingTravelBuddiesFailed": "Failed to load travel buddies: {error}",
+  "noTravelBuddyInfo": "No travel buddy information",
+  
+  "findSomeoneToTravelWith": "Find someone to travel with",
+  
+  "dontForgetEssentials": "Don't forget essentials",
+  
+  "overview": "Overview",
+  
+  "budget": "Budget",
+  
+  "itinerary": "Itinerary",
+  
+  "memories": "Memories",
+  
+  "budgetOverview": "Budget Overview",
+  
+  "tapToManageExpenses": "Tap to manage expenses",
+  
+  "spent": "Spent",
+  
+  "deleteDestination": "Delete Destination",
+  
+  "deleteDestinationConfirm": "Are you sure you want to delete \"{name}\"? This action cannot be undone.",
+  "@deleteDestinationConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  
+  "deleteItem": "Delete Item",
+  
+  "deleteItemConfirm": "Are you sure you want to delete \"{name}\"?",
+  "@deleteItemConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  
+  "errorSavingDestination": "Error saving destination: {error}",
+  "@errorSavingDestination": {
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  
+  "errorSavingDocument": "Error saving document: {error}",
+  "@errorSavingDocument": {
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  
+  "noSearchResults": "No results found for \"{query}\"",
+  "@noSearchResults": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  
+  "searchError": "Search error: {error}",
+  "@searchError": {
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  
+  "errorLoadingProfile": "Error loading profile",
+  
+  "featureInDevelopment": "Feature in development...",
+  
+  "itemsTotal": "{count} items total",
+  "@itemsTotal": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+
+  "name": "Name",
+
+  "email": "Email",
+
+  "phone": "Phone",
+
+  "availability": "Availability (e.g., June 2024)",
+
+  "confirmedToTravel": "Confirmed to travel",
+
+  "travelPreferences": "Travel Preferences",
+
+  "adventure": "Adventure",
+
+  "relaxation": "Relaxation",
+
+  "culture": "Culture",
+
+  "foodie": "Foodie",
+
+  "nature": "Nature",
+
+  "urban": "Urban",
+
+  "dreamDestinations": "Dream Destinations",
+
+  "addDestinationAndPressReturn": "Add destination and press return",
+
+  "pleaseEnterName": "Please enter name",
+
+  "pleaseEnterEmail": "Please enter email",
+
+  "pleaseEnterPhone": "Please enter phone",
+
+  "travelBuddyAddedSuccessfully": "Travel buddy added successfully",
+
+  "travelBuddyUpdatedSuccessfully": "Travel buddy updated successfully",
+
+  "errorSavingTravelBuddy": "Error saving travel buddy: {error}",
+  "@errorSavingTravelBuddy": {
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+
+  "editTravelBuddy": "Edit Travel Buddy",
+
+  "deleteTravelBuddy": "Delete Travel Buddy",
+
+  "deleteTravelBuddyConfirm": "Are you sure you want to delete \"{name}\"? This action cannot be undone.",
+  "@deleteTravelBuddyConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+
+  "travelBuddyDeleted": "Travel buddy deleted successfully",
+
+  "noTravelBuddiesYet": "No travel buddies yet",
+
+  "addTravelBuddiesToGetStarted": "Add some travel buddies to get started!",
+
+  "addFirstTravelBuddy": "Add first travel buddy",
+
+  "travelBuddiesTotal": "{count} travel buddies",
+  "@travelBuddiesTotal": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+
+  "searchTravelBuddies": "Search travel buddies...",
+
+  "low": "Low",
+
+  "medium": "Medium",
+
+  "high": "High",
+
+  "budgetLevelCard": "Budget Level",
+
+  "comfort": "Comfort",
+
+  "luxury": "Luxury",
+
+  "budgetOption": "Budget",
+
+  "packing": "Packing",
+
+  "budgetAndExpenses": "Budget & Expenses",
+
+  "totalBudget": "Total Budget",
+
+  "remaining": "Remaining",
+
+  "used": "Used",
+
+  "expensesByCategory": "Expenses by Category",
+
+  "recentExpenses": "Recent Expenses",
+
+  "noExpensesYet": "No Expenses Yet",
+
+  "addFirstExpenseToStartTracking": "Add your first expense to start tracking",
+
+  "addExpense": "Add Expense",
+
+  "editExpense": "Edit Expense",
+
+  "expenseDetails": "Expense Details",
+
+  "expenseName": "Expense Name",
+
+  "amount": "Amount",
+
+  "date": "Date",
+
+  "alreadyPaid": "Already Paid",
+
+  "accommodation": "Accommodation",
+
+  "transport": "Transport",
+
+  "food": "Food",
+
+  "activities": "Activities",
+
+  "shopping": "Shopping",
+
+  "insurance": "Insurance",
+
+  "visa": "Visa",
+
+  "paid": "Paid",
+  
+  "unpaid": "Unpaid",
+
+  "itinerary": "Itinerary",
+  "noItineraryYet": "No itinerary yet",
+  "planYourTripDayByDay": "Plan your trip day by day",
+  "addFirstDay": "Add First Day",
+  "addItineraryDay": "Add Itinerary Day",
+  "editItineraryDay": "Edit Itinerary Day",
+  "dayInformation": "Day Information",
+  "dayTitle": "Day Title",
+  "date": "Date",
+  "day": "Day {number}",
+  "@day": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "activities": "Activities",
+  "addActivity": "Add Activity",
+  "time": "Time",
+  "activityTitle": "Activity Title",
+  "location": "Location",
+  "cost": "Cost",
+  "costOptional": "Cost (optional)",
+  "notes": "Notes",
+  "alreadyBooked": "Already Booked",
+  "noActivitiesPlanned": "No activities planned",
+  "deleteDay": "Delete Day",
+  "deleteDayConfirm": "Are you sure you want to delete \"{title}\"?",
+  "@deleteDayConfirm": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "dayDeletedSuccessfully": "Day deleted successfully",
+  "timeExample": "Time (e.g., 9:00 AM)",
+  "days": "{count} days",
+  "@days": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+
+  "packingList": "Packing List",
+  "progress": "Progress",
+  "noItemsYet": "No items yet",
+  "addItemsToPackingList": "Add items to your packing list",
+  "essential": "Essential",
+  "deleteItem": "Delete Item",
+  "deleteItemConfirm": "Are you sure you want to delete \"{name}\"?",
+  "@deleteItemConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "itemDeletedSuccessfully": "Item deleted successfully",
+  "quantity": "Quantity",
+  
+  "travelMemories": "Travel Memories",
+  "noMemoriesYet": "No memories yet",
+  "addPhotosAndStories": "Add photos and stories from your trip",
+  "addFirstMemory": "Add First Memory",
+  "addMemory": "Add Memory",
+  "editMemory": "Edit Memory",
+  "deleteMemory": "Delete Memory",
+  "deleteMemoryConfirm": "Are you sure you want to delete \"{title}\"?",
+  "@deleteMemoryConfirm": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "memoryDeletedSuccessfully": "Memory deleted successfully",
+  "memoryDetails": "Memory Details",
+  "memoryTitle": "Memory Title",
+  "rating": "Rating",
+  "description": "Description",
+  "shareYourExperience": "Share your experience...",
+
+  "items": "items",
+
+  "currentTrips": "Current Trips",
+  "templates": "Templates",
+  "history": "History",
+  "viewDetails": "View Details",
+  "addItems": "Add Items",
+  "noCurrentTrips": "No Current Trips",
+  "planTripToStartPacking": "Plan a trip to start packing",
+  "noTemplatesYet": "No Templates Yet",
+  "createTemplateToReuse": "Create templates to reuse items",
+  "noCompletedTrips": "No Completed Trips",
+  "completedTripsWillAppearHere": "Completed trips will appear here",
+
+  "pleaseEnterExpenseName": "Please enter expense name",
+
+  "pleaseEnterAmount": "Please enter amount",
+
+  "expenseAddedSuccessfully": "Expense added successfully",
+
+  "expenseUpdatedSuccessfully": "Expense updated successfully",
+
+  "errorSavingExpense": "Error saving expense: {error}",
+  "@errorSavingExpense": {
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+
+  "deleteExpense": "Delete Expense",
+
+  "deleteExpenseConfirm": "Are you sure you want to delete \"{name}\"? This action cannot be undone.",
+  "@deleteExpenseConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+
+  "viewPacking": "View Packing",
+  "addFromTemplate": "Add from Template",
+  "addFromTemplateDescription": "Select items from templates to quickly add to packing list",
+  "selectFromTemplate": "Select from Template",
+  "addSelected": "Add Selected",
+  "errorLoadingItems": "Error loading items",
+  "errorLoadingStats": "Error loading stats",
+  "errorLoadingTemplates": "Error loading templates",
+  "totalItems": "Total Items",
+  "packed": "Packed",
+  "remaining": "Remaining",
+  "selectAllTemplateItems": "Select all template items",
+  "createTemplateFirst": "Please create templates first",
+  "pleaseSelectItems": "Please select items",
+  "addingItems": "Adding items...",
+  "creatingTemplateItem": "Creating template item",
+  "addToDestination": "Add to Destination",
+  "addItemToSpecificDestination": "Add item to specific destination",
+  "addToTemplate": "Add to Template",
+  "addItemToTemplate": "Add item to template",
+  "deleteTemplateItem": "Delete Template Item",
+  "deleteTemplateItemConfirm": "Are you sure you want to delete template item \"{name}\"?",
+  "@deleteTemplateItemConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "templateItemDeletedSuccessfully": "Template item deleted successfully",
+  "featureComingSoon": "Feature coming soon",
+  "select": "Select",
+  "errorDeletingItem": "Error deleting item: {error}",
+  "@errorDeletingItem": {
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "itemsAddedSuccessfully": "Successfully added {count} items",
+  "@itemsAddedSuccessfully": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "errorAddingItems": "Error adding items: {error}",
+  "@errorAddingItems": {
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+
+  "aiSmartCreateDestination": "AI Smart Create Destination",
+  "aiPlanPreview": "AI Plan Preview",
+  "letAiPlanYourTrip": "Let AI Plan Your Trip",
+  "fourStepsAutoGenerate": "4 steps, AI auto-generates complete itinerary",
+  "aiPlanning": "AI is planning your trip...",
+  "aiPlanningTime": "This may take 10-30 seconds",
+  "pleaseSelectTravelDates": "Please select travel dates",
+  "aiFailed": "AI generation failed",
+  "remainingAiPlans": "{count} AI plans remaining",
+  "@remainingAiPlans": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "aiQuotaExhausted": "AI planning quota exhausted, please upgrade to VIP",
+  "destinationNameLabel": "1. Destination Name",
+  "destinationNameHint": "e.g., Tokyo, Paris, New York...",
+  "budgetLevelLabel": "2. Budget Level",
+  "budgetEconomy": "Economy",
+  "budgetComfort": "Comfort",
+  "budgetLuxury": "Luxury",
+  "travelDatesLabel": "3. Travel Dates",
+  "startDateLabel": "Start Date",
+  "endDateLabel": "End Date",
+  "selectDate": "Select date",
+  "aiSmartPlanButton": "4. AI Smart Planning",
+  "aiAutoDetectCountry": "* AI will automatically detect the destination's country and generate a detailed travel plan",
+  "planGeneratedSuccessfully": "Plan generated successfully!",
+  "savePlan": "Save Plan",
+  "savingPlan": "Saving...",
+  "planSavedSuccess": "Plan saved successfully!",
+  "dayNumberLabel": "Day {number}",
+  "@dayNumberLabel": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "packagedItems": "Packing Items",
+  "todoItems": "To-do Items",
+  "detailedItinerary": "Detailed Itinerary",
+  "aiGeneratedPlan": "AI Generated Travel Plan",
+  "daysCount": "{count} days",
+  "@daysCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "itemsCount": "{count} items",
+  "@itemsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "categoryClothing": "Clothing",
+  "categoryElectronics": "Electronics",
+  "categoryCosmetics": "Cosmetics",
+  "categoryHealth": "Health",
+  "categoryAccessories": "Accessories",
+  "categoryBooks": "Books",
+  "categoryEntertainment": "Entertainment",
+  "categoryOther": "Other"
+}

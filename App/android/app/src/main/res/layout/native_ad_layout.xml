@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.gms.ads.nativead.NativeAdView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:padding="8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- 广告标识 -->
+        <TextView
+            android:id="@+id/ad_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ad"
+            android:textSize="10sp"
+            android:textColor="#00BCD4"
+            android:textStyle="bold"
+            android:background="#E0F7FA"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="6dp" />
+
+        <!-- 主内容区域 - 使用横向布局 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ad_badge"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- 左侧内容 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingEnd="8dp">
+
+                <!-- 标题 -->
+                <TextView
+                    android:id="@+id/ad_headline"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:maxLines="2"
+                    android:ellipsize="end" />
+
+                <!-- 描述 -->
+                <TextView
+                    android:id="@+id/ad_body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textSize="12sp"
+                    android:textColor="#666666"
+                    android:maxLines="2"
+                    android:ellipsize="end" />
+
+                <!-- 底部信息行 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <!-- 图标 -->
+                    <ImageView
+                        android:id="@+id/ad_app_icon"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="广告图标" />
+
+                    <!-- 广告商 -->
+                    <TextView
+                        android:id="@+id/ad_advertiser"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="6dp"
+                        android:textSize="11sp"
+                        android:textColor="#999999"
+                        android:maxLines="1"
+                        android:ellipsize="end" />
+
+                    <!-- 评分 -->
+                    <RatingBar
+                        android:id="@+id/ad_stars"
+                        style="?android:attr/ratingBarStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:numStars="5"
+                        android:isIndicator="true" />
+                </LinearLayout>
+
+                <!-- 操作按钮 -->
+                <Button
+                    android:id="@+id/ad_call_to_action"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="6dp"
+                    android:minWidth="80dp"
+                    android:textSize="12sp"
+                    android:textColor="#FFFFFF"
+                    android:background="#00BCD4"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp" />
+            </LinearLayout>
+
+            <!-- 右侧媒体视图 - 设置150x150dp以确保满足AdMob要求 -->
+            <FrameLayout
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="8dp">
+                
+                <com.google.android.gms.ads.nativead.MediaView
+                    android:id="@+id/ad_media"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </FrameLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</com.google.android.gms.ads.nativead.NativeAdView>
+

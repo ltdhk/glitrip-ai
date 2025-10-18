@@ -1,0 +1,90 @@
+name: glitrip
+description: "Glitrip Planner - Travel Light, Plan Bright."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.1.0 <4.0.0'
+  flutter: ">=3.13.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  
+  # 状态管理
+  flutter_riverpod: ^2.4.9
+  riverpod_annotation: ^2.3.3
+  
+  # 数据库
+  sqflite: ^2.3.0
+  path: ^1.8.3
+  
+  # UI组件
+  cupertino_icons: ^1.0.2
+  flutter_staggered_animations: ^1.1.1
+  
+  # 工具类
+  intl: 0.20.2
+  uuid: ^4.1.0
+  
+  # 图表
+  fl_chart: ^0.64.0
+  
+  # 图片相关
+  image_picker: ^1.0.4
+  path_provider: ^2.1.1
+
+  # 网络请求和认证
+  http: ^1.2.0
+  shared_preferences: ^2.3.3
+  flutter_secure_storage: ^9.2.2
+
+  # 保留广告（可选）
+  google_mobile_ads: ^6.0.0
+  firebase_core: ^4.2.0
+  firebase_analytics: ^12.0.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  flutter_launcher_icons: ^0.13.1
+  flutter_native_splash: ^2.4.1
+  
+  # 代码生成
+  riverpod_generator: ^2.3.9
+  build_runner: ^2.4.7
+  json_annotation: ^4.8.1
+  json_serializable: ^6.7.1
+
+flutter:
+  uses-material-design: true
+  generate: true
+  
+  assets:
+    - assets/images/
+    - assets/icons/
+
+# App icon generation config (run: flutter pub run flutter_launcher_icons)
+flutter_icons:
+  android: true
+  ios: true
+  image_path: assets/icons/app_icon.png
+  adaptive_icon_background: "#00BCD4"
+  adaptive_icon_foreground: assets/icons/app_icon.png
+  remove_alpha_ios: true
+
+# Native splash (use the same plane logo)
+flutter_native_splash:
+  color: "#00BCD4"
+  image: assets/icons/app_icon.png
+  branding: assets/icons/app_icon.png
+  branding_mode: bottom
+  android_12:
+    color: "#00BCD4"
+    image: assets/icons/app_icon.png
+  web: true
+  ios: true
+  android: true
