@@ -24,7 +24,7 @@ class _DestinationTodosPageState extends ConsumerState<DestinationTodosPage>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 8, vsync: this);
+    _tabController = TabController(length: 9, vsync: this); // 增加到9个tab（添加"所有"）
   }
 
   @override
@@ -51,70 +51,147 @@ class _DestinationTodosPageState extends ConsumerState<DestinationTodosPage>
             tooltip: l10n.addTodo,
           ),
         ],
-        bottom: TabBar(
-          controller: _tabController,
-          isScrollable: true,
-          indicatorColor: Colors.white,
-          labelColor: Colors.white,
-          unselectedLabelColor: Colors.white70,
-          tabs: [
-            Tab(
-              icon: const Icon(Icons.card_travel),
-              text: l10n.todoCategoryPassport,
-            ),
-            Tab(
-              icon: const Icon(Icons.badge),
-              text: l10n.todoCategoryIdCard,
-            ),
-            Tab(
-              icon: const Icon(Icons.document_scanner),
-              text: l10n.todoCategoryVisa,
-            ),
-            Tab(
-              icon: const Icon(Icons.health_and_safety),
-              text: l10n.todoCategoryInsurance,
-            ),
-            Tab(
-              icon: const Icon(Icons.flight),
-              text: l10n.todoCategoryTicket,
-            ),
-            Tab(
-              icon: const Icon(Icons.hotel),
-              text: l10n.todoCategoryHotel,
-            ),
-            Tab(
-              icon: const Icon(Icons.directions_car),
-              text: l10n.todoCategoryCarRental,
-            ),
-            Tab(
-              icon: const Icon(Icons.more_horiz),
-              text: l10n.todoCategoryOther,
-            ),
-          ],
-        ),
       ),
       body: Column(
         children: [
-          // Stats Overview
+          // Stats Overview - 移到顶部
           _buildStatsOverview(l10n, statsAsync),
+
+          // Category Tabs - 带图标在文字前方
+          Container(
+            color: Theme.of(context).colorScheme.primary,
+            child: TabBar(
+              controller: _tabController,
+              isScrollable: true,
+              indicatorColor: Colors.white,
+              labelColor: Colors.white,
+              unselectedLabelColor: Colors.white70,
+              tabs: [
+                // 所有
+                Tab(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Icon(Icons.list, size: 18),
+                      const SizedBox(width: 6),
+                      Text(l10n.allTodos),
+                    ],
+                  ),
+                ),
+                // 护照
+                Tab(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Icon(Icons.card_travel, size: 18),
+                      const SizedBox(width: 6),
+                      Text(l10n.todoCategoryPassport),
+                    ],
+                  ),
+                ),
+                // 身份证
+                Tab(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Icon(Icons.badge, size: 18),
+                      const SizedBox(width: 6),
+                      Text(l10n.todoCategoryIdCard),
+                    ],
+                  ),
+                ),
+                // 签证
+                Tab(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Icon(Icons.document_scanner, size: 18),
+                      const SizedBox(width: 6),
+                      Text(l10n.todoCategoryVisa),
+                    ],
+                  ),
+                ),
+                // 保险
+                Tab(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Icon(Icons.health_and_safety, size: 18),
+                      const SizedBox(width: 6),
+                      Text(l10n.todoCategoryInsurance),
+                    ],
+                  ),
+                ),
+                // 机票
+                Tab(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Icon(Icons.flight, size: 18),
+                      const SizedBox(width: 6),
+                      Text(l10n.todoCategoryTicket),
+                    ],
+                  ),
+                ),
+                // 酒店
+                Tab(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Icon(Icons.hotel, size: 18),
+                      const SizedBox(width: 6),
+                      Text(l10n.todoCategoryHotel),
+                    ],
+                  ),
+                ),
+                // 租车
+                Tab(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Icon(Icons.directions_car, size: 18),
+                      const SizedBox(width: 6),
+                      Text(l10n.todoCategoryCarRental),
+                    ],
+                  ),
+                ),
+                // 其他
+                Tab(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Icon(Icons.more_horiz, size: 18),
+                      const SizedBox(width: 6),
+                      Text(l10n.todoCategoryOther),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
 
           // Category Tabs Content
           Expanded(
             child: todosAsync.when(
               data: (todos) => TabBarView(
                 controller: _tabController,
-                children: TodoCategory.values.map((category) {
-                  final categoryTodos = todos
-                      .where((todo) => todo.category == category)
-                      .toList();
-                  return _buildCategoryTodosList(
-                    context,
-                    ref,
-                    l10n,
-                    categoryTodos,
-                    category,
-                  );
-                }).toList(),
+                children: [
+                  // 所有待办
+                  _buildAllTodosList(context, ref, l10n, todos),
+                  // 各个类别
+                  ...TodoCategory.values.map((category) {
+                    final categoryTodos = todos
+                        .where((todo) => todo.category == category)
+                        .toList();
+                    return _buildCategoryTodosList(
+                      context,
+                      ref,
+                      l10n,
+                      categoryTodos,
+                      category,
+                    );
+                  }),
+                ],
               ),
               loading: () => const Center(child: CircularProgressIndicator()),
               error: (error, stackTrace) => Center(
@@ -154,79 +231,52 @@ class _DestinationTodosPageState extends ConsumerState<DestinationTodosPage>
     AsyncValue<Map<String, int>> statsAsync,
   ) {
     return Container(
-      margin: const EdgeInsets.all(16),
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            Theme.of(context).colorScheme.primary,
-            Theme.of(context).colorScheme.primaryContainer,
-          ],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.1),
-            blurRadius: 8,
-            offset: const Offset(0, 4),
+      color: Theme.of(context).colorScheme.primary,
+      padding: const EdgeInsets.all(16),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white.withValues(alpha: 0.15),
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(
+            color: Colors.white.withValues(alpha: 0.3),
+            width: 1,
           ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+        child: statsAsync.when(
+          data: (stats) => Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              const Icon(Icons.checklist, color: Colors.white, size: 24),
-              const SizedBox(width: 12),
-              Text(
-                l10n.todoStats,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
+              _buildStatItem(
+                l10n.totalTodos,
+                stats['total']?.toString() ?? '0',
+                Icons.format_list_bulleted,
+              ),
+              _buildStatItem(
+                l10n.completedCount,
+                stats['completed']?.toString() ?? '0',
+                Icons.check_circle,
+              ),
+              _buildStatItem(
+                l10n.pendingCount,
+                stats['pending']?.toString() ?? '0',
+                Icons.pending,
+              ),
+              _buildStatItem(
+                l10n.highPriorityCount,
+                stats['highPriority']?.toString() ?? '0',
+                Icons.priority_high,
               ),
             ],
           ),
-          const SizedBox(height: 16),
-          statsAsync.when(
-            data: (stats) => Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                _buildStatItem(
-                  l10n.totalTodos,
-                  stats['total']?.toString() ?? '0',
-                  Icons.format_list_bulleted,
-                ),
-                _buildStatItem(
-                  l10n.completedCount,
-                  stats['completed']?.toString() ?? '0',
-                  Icons.check_circle,
-                ),
-                _buildStatItem(
-                  l10n.pendingCount,
-                  stats['pending']?.toString() ?? '0',
-                  Icons.pending,
-                ),
-                _buildStatItem(
-                  l10n.highPriorityCount,
-                  stats['highPriority']?.toString() ?? '0',
-                  Icons.priority_high,
-                ),
-              ],
-            ),
-            loading: () => const Center(
-              child: CircularProgressIndicator(color: Colors.white),
-            ),
-            error: (_, __) => Text(
-              l10n.error,
-              style: const TextStyle(color: Colors.white70),
-            ),
+          loading: () => const Center(
+            child: CircularProgressIndicator(color: Colors.white),
           ),
-        ],
+          error: (_, __) => Text(
+            l10n.error,
+            style: const TextStyle(color: Colors.white70),
+          ),
+        ),
       ),
     );
   }
@@ -253,6 +303,95 @@ class _DestinationTodosPageState extends ConsumerState<DestinationTodosPage>
           ),
           textAlign: TextAlign.center,
         ),
+      ],
+    );
+  }
+
+  // 新增：显示所有待办
+  Widget _buildAllTodosList(
+    BuildContext context,
+    WidgetRef ref,
+    AppLocalizations l10n,
+    List<Todo> todos,
+  ) {
+    if (todos.isEmpty) {
+      return Center(
+        child: Padding(
+          padding: const EdgeInsets.all(32),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.list,
+                size: 80,
+                color: Colors.grey[300],
+              ),
+              const SizedBox(height: 16),
+              Text(
+                l10n.noTodosYet,
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.grey[600],
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 24),
+              ElevatedButton.icon(
+                onPressed: () => _navigateToAddTodo(context),
+                icon: const Icon(Icons.add),
+                label: Text(l10n.addTodo),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
+    // Group by completion status
+    final pendingTodos = todos.where((t) => !t.isCompleted).toList();
+    final completedTodos = todos.where((t) => t.isCompleted).toList();
+
+    return ListView(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      children: [
+        // Pending Todos
+        if (pendingTodos.isNotEmpty) ...[
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            child: Text(
+              l10n.pendingCount,
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+            ),
+          ),
+          ...pendingTodos.map((todo) => TodoItemCard(
+                todo: todo,
+                onTap: () => _navigateToEditTodo(context, todo),
+                onToggleComplete: (_) => _toggleTodoCompletion(ref, todo.id),
+                onDelete: () => _deleteTodo(ref, todo.id, l10n),
+              )),
+        ],
+
+        // Completed Todos
+        if (completedTodos.isNotEmpty) ...[
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            child: Text(
+              l10n.completedCount,
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey,
+                  ),
+            ),
+          ),
+          ...completedTodos.map((todo) => TodoItemCard(
+                todo: todo,
+                onTap: () => _navigateToEditTodo(context, todo),
+                onToggleComplete: (_) => _toggleTodoCompletion(ref, todo.id),
+                onDelete: () => _deleteTodo(ref, todo.id, l10n),
+              )),
+        ],
       ],
     );
   }

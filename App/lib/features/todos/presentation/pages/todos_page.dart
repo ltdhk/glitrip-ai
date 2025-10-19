@@ -5,6 +5,7 @@ import '../../../destinations/domain/entities/destination.dart';
 import '../../../destinations/presentation/providers/destinations_provider.dart';
 import '../providers/todo_providers.dart';
 import 'destination_todos_page.dart';
+import 'add_edit_todo_page.dart';
 
 class TodosPage extends ConsumerStatefulWidget {
   const TodosPage({super.key});
@@ -32,19 +33,51 @@ class _TodosPageState extends ConsumerState<TodosPage>
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
+    final statsAsync = ref.watch(destinationStatsProvider);
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          l10n.todos,
-          style: const TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              l10n.todos,
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            statsAsync.when(
+              data: (stats) => Text(
+                l10n.destinationsTotal(stats['total'] ?? 0),
+                style: const TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.normal,
+                  color: Colors.white70,
+                ),
+              ),
+              loading: () => const SizedBox.shrink(),
+              error: (_, __) => const SizedBox.shrink(),
+            ),
+          ],
         ),
         backgroundColor: Theme.of(context).colorScheme.primary,
         foregroundColor: Colors.white,
         elevation: 0,
+        actions: [
+          Container(
+            margin: const EdgeInsets.only(right: 8),
+            decoration: BoxDecoration(
+              color: Colors.white.withValues(alpha: 0.2),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: IconButton(
+              icon: const Icon(Icons.add, size: 24),
+              onPressed: () => _showAddTodoOptions(context, l10n),
+              tooltip: l10n.addTodo,
+            ),
+          ),
+        ],
       ),
       body: Container(
         color: Theme.of(context).colorScheme.primary,
@@ -492,5 +525,84 @@ class _TodosPageState extends ConsumerState<TodosPage>
         builder: (context) => DestinationTodosPage(destination: destination),
       ),
     );
+  }
+
+  void _showAddTodoOptions(BuildContext context, AppLocalizations l10n) async {
+    // 获取计划中的目的地列表
+    final destinationsAsync = ref.read(destinationsByStatusProvider(DestinationStatus.planned));
+
+    destinationsAsync.whenOrNull(
+      data: (destinations) {
+        if (destinations.isEmpty) {
+          // 如果没有计划中的目的地，提示用户先创建目的地
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(l10n.createDestinationPrompt),
+              backgroundColor: Theme.of(context).colorScheme.error,
+            ),
+          );
+          return;
+        }
+
+        // 显示目的地选择对话框
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text(l10n.selectDestination),
+            content: SizedBox(
+              width: double.maxFinite,
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: destinations.length,
+                itemBuilder: (context, index) {
+                  final destination = destinations[index];
+                  return ListTile(
+                    leading: Icon(
+                      Icons.location_on,
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                    title: Text(destination.name),
+                    subtitle: Text(destination.country),
+                    onTap: () {
+                      Navigator.of(context).pop();
+                      _navigateToAddTodo(destination);
+                    },
+                  );
+                },
+              ),
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: Text(l10n.cancel),
+              ),
+            ],
+          ),
+        );
+      },
+      error: (error, _) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('${l10n.error}: $error'),
+            backgroundColor: Theme.of(context).colorScheme.error,
+          ),
+        );
+      },
+    );
+  }
+
+  Future<void> _navigateToAddTodo(Destination destination) async {
+    final result = await Navigator.of(context).push<bool>(
+      MaterialPageRoute(
+        builder: (context) => AddEditTodoPage(
+          destinationId: destination.id,
+        ),
+      ),
+    );
+
+    if (result == true && mounted) {
+      // 刷新列表
+      ref.invalidate(destinationsByStatusProvider(DestinationStatus.planned));
+    }
   }
 }

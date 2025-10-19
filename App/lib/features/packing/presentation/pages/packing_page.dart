@@ -34,15 +34,33 @@ class _PackingPageState extends ConsumerState<PackingPage>
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
+    final statsAsync = ref.watch(destinationStatsProvider);
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          l10n.packing,
-          style: const TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              l10n.packing,
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            statsAsync.when(
+              data: (stats) => Text(
+                l10n.destinationsTotal(stats['total'] ?? 0),
+                style: const TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.normal,
+                  color: Colors.white70,
+                ),
+              ),
+              loading: () => const SizedBox.shrink(),
+              error: (_, __) => const SizedBox.shrink(),
+            ),
+          ],
         ),
         backgroundColor: Colors.purple,
         foregroundColor: Colors.white,

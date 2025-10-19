@@ -5,7 +5,7 @@
  */
 
 import { Response, NextFunction } from 'express';
-import { GeminiService } from '../services/ai/gemini.service';
+import { AiServiceFactory, IAiService } from '../services/ai/ai-service.factory';
 import { UserService } from '../services/user/user.service';
 import { UsageService } from '../services/user/usage.service';
 import { createSuccessResponse, createErrorResponse, PlanningContext } from '../models';
@@ -13,12 +13,13 @@ import { HttpStatus, ErrorCode } from '../config/constants';
 import { AuthRequest } from '../middleware/auth.middleware';
 
 export class AiController {
-  private geminiService: GeminiService;
+  private aiService: IAiService;
   private userService: UserService;
   private usageService: UsageService;
 
   constructor() {
-    this.geminiService = new GeminiService();
+    // 使用工厂模式创建AI服务实例（根据环境变量自动选择）
+    this.aiService = AiServiceFactory.createService();
     this.userService = new UserService();
     this.usageService = new UsageService();
   }
@@ -82,7 +83,7 @@ export class AiController {
 
       // 4. 调用AI生成
       console.log(`Generating plan for user ${userId}:`, context);
-      const plan = await this.geminiService.generateDestinationPlan(context);
+      const plan = await this.aiService.generateDestinationPlan(context);
 
       // 5. 记录生成历史
       await this.userService.recordAiGeneration(userId, context, 'success');
