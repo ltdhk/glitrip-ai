@@ -113,11 +113,13 @@ class PackingItemModelV2 {
 class TodoItemModelV2 {
   final String title;
   final String? description;
+  final String? category; // passport, idCard, visa, insurance, ticket, hotel, carRental, other
   final String? priority; // high, medium, low
 
   TodoItemModelV2({
     required this.title,
     this.description,
+    this.category,
     this.priority,
   });
 
@@ -125,6 +127,7 @@ class TodoItemModelV2 {
     return TodoItemModelV2(
       title: json['title'] as String,
       description: json['description'] as String?,
+      category: json['category'] as String?,
       priority: json['priority'] as String?,
     );
   }
@@ -133,6 +136,7 @@ class TodoItemModelV2 {
     return {
       'title': title,
       if (description != null) 'description': description,
+      if (category != null) 'category': category,
       if (priority != null) 'priority': priority,
     };
   }

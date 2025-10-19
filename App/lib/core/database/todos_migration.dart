@@ -12,6 +12,7 @@ class TodosMigration {
       destination_id TEXT NOT NULL,
       title TEXT NOT NULL,
       description TEXT,
+      category TEXT CHECK (category IN ('passport', 'idCard', 'visa', 'insurance', 'ticket', 'hotel', 'carRental', 'other')),
       priority TEXT CHECK (priority IN ('high', 'medium', 'low')),
       is_completed INTEGER NOT NULL DEFAULT 0,
       deadline TEXT,
@@ -21,9 +22,30 @@ class TodosMigration {
     )
   ''';
 
+  /// 添加category字段的迁移SQL（用于更新现有表）
+  static const String addCategoryColumnSql = '''
+    ALTER TABLE todos ADD COLUMN category TEXT CHECK (category IN ('passport', 'idCard', 'visa', 'insurance', 'ticket', 'hotel', 'carRental', 'other'))
+  ''';
+
   /// 执行迁移
   static Future<void> migrate(Database db) async {
     await db.execute(createTableSql);
+  }
+
+  /// 添加category字段（用于更新现有数据库）
+  static Future<void> addCategoryColumn(Database db) async {
+    try {
+      // 检查category字段是否已存在
+      final columns = await db.rawQuery('PRAGMA table_info(todos)');
+      final hasCategoryColumn = columns.any((col) => col['name'] == 'category');
+
+      if (!hasCategoryColumn) {
+        await db.execute(addCategoryColumnSql);
+      }
+    } catch (e) {
+      print('Error adding category column: $e');
+      // 忽略错误，字段可能已存在
+    }
   }
 
   /// 检查表是否存在

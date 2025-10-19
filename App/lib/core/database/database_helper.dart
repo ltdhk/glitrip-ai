@@ -26,7 +26,7 @@ class DatabaseHelper {
 
     return await openDatabase(
       path,
-      version: 11, // 增加版本号以触发升级，添加todos表
+      version: 12, // 增加版本号以触发升级，为todos表添加category字段
       onCreate: _onCreate,
       onUpgrade: _onUpgrade,
     );
@@ -225,6 +225,7 @@ class DatabaseHelper {
           destination_id TEXT NOT NULL,
           title TEXT NOT NULL,
           description TEXT,
+          category TEXT CHECK (category IN ('passport', 'idCard', 'visa', 'insurance', 'ticket', 'hotel', 'carRental', 'other')) DEFAULT 'other',
           priority TEXT CHECK (priority IN ('high', 'medium', 'low')),
           is_completed INTEGER NOT NULL DEFAULT 0,
           deadline TEXT,
@@ -1223,6 +1224,23 @@ class DatabaseHelper {
       } catch (e) {
         if (kDebugMode) {
           print('添加 todos 表时出错: $e');
+        }
+      }
+    }
+
+    if (oldVersion < 12) {
+      // 为todos表添加category字段
+      try {
+        await db.execute('''
+          ALTER TABLE todos ADD COLUMN category TEXT CHECK (category IN ('passport', 'idCard', 'visa', 'insurance', 'ticket', 'hotel', 'carRental', 'other')) DEFAULT 'other'
+        ''');
+
+        if (kDebugMode) {
+          print('已为 todos 表添加 category 字段');
+        }
+      } catch (e) {
+        if (kDebugMode) {
+          print('添加 category 字段时出错: $e');
         }
       }
     }

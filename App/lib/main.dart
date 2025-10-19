@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:glitrip/core/database/database_helper.dart';
 import 'package:glitrip/core/providers/locale_provider.dart';
 import 'package:glitrip/features/destinations/presentation/pages/destinations_page.dart';
-import 'package:glitrip/features/documents/presentation/pages/documents_page.dart';
+import 'package:glitrip/features/todos/presentation/pages/todos_page.dart';
 import 'package:glitrip/features/packing/presentation/pages/packing_page.dart';
 import 'package:glitrip/features/profile/presentation/pages/profile_page.dart';
 import 'package:glitrip/generated/l10n/app_localizations.dart';
@@ -118,7 +118,7 @@ class _MainPageState extends State<MainPage> {
 
   final List<Widget> _pages = [
     const DestinationsPage(),
-    const DocumentsPage(),
+    const TodosPage(),
     const PackingPage(),
     const ProfilePage(),
   ];
@@ -141,8 +141,8 @@ class _MainPageState extends State<MainPage> {
             label: l10n.destinations,
           ),
           BottomNavigationBarItem(
-            icon: const Icon(Icons.description),
-            label: l10n.documents,
+            icon: const Icon(Icons.checklist),
+            label: l10n.todos,
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.luggage),

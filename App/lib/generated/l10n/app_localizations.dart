@@ -1655,7 +1655,7 @@ abstract class AppLocalizations {
   /// No description provided for @noCompletedTrips.
   ///
   /// In en, this message translates to:
-  /// **'No Completed Trips'**
+  /// **'No completed trips yet'**
   String get noCompletedTrips;
 
   /// No description provided for @completedTripsWillAppearHere.
@@ -2113,6 +2113,342 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Other'**
   String get categoryOther;
+
+  /// No description provided for @currencySymbol.
+  ///
+  /// In en, this message translates to:
+  /// **'\$'**
+  String get currencySymbol;
+
+  /// No description provided for @currencyCode.
+  ///
+  /// In en, this message translates to:
+  /// **'USD'**
+  String get currencyCode;
+
+  /// No description provided for @todos.
+  ///
+  /// In en, this message translates to:
+  /// **'To Do'**
+  String get todos;
+
+  /// No description provided for @currentTodoTrips.
+  ///
+  /// In en, this message translates to:
+  /// **'Current Trips'**
+  String get currentTodoTrips;
+
+  /// No description provided for @completedTodos.
+  ///
+  /// In en, this message translates to:
+  /// **'Completed'**
+  String get completedTodos;
+
+  /// No description provided for @allTodos.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get allTodos;
+
+  /// No description provided for @todoCategoryPassport.
+  ///
+  /// In en, this message translates to:
+  /// **'Passport'**
+  String get todoCategoryPassport;
+
+  /// No description provided for @todoCategoryIdCard.
+  ///
+  /// In en, this message translates to:
+  /// **'ID Card'**
+  String get todoCategoryIdCard;
+
+  /// No description provided for @todoCategoryVisa.
+  ///
+  /// In en, this message translates to:
+  /// **'Visa'**
+  String get todoCategoryVisa;
+
+  /// No description provided for @todoCategoryInsurance.
+  ///
+  /// In en, this message translates to:
+  /// **'Insurance'**
+  String get todoCategoryInsurance;
+
+  /// No description provided for @todoCategoryTicket.
+  ///
+  /// In en, this message translates to:
+  /// **'Flight Ticket'**
+  String get todoCategoryTicket;
+
+  /// No description provided for @todoCategoryHotel.
+  ///
+  /// In en, this message translates to:
+  /// **'Hotel Booking'**
+  String get todoCategoryHotel;
+
+  /// No description provided for @todoCategoryCarRental.
+  ///
+  /// In en, this message translates to:
+  /// **'Car Rental'**
+  String get todoCategoryCarRental;
+
+  /// No description provided for @todoCategoryOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get todoCategoryOther;
+
+  /// No description provided for @todoDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'To Do Details'**
+  String get todoDetails;
+
+  /// No description provided for @todoStats.
+  ///
+  /// In en, this message translates to:
+  /// **'Statistics'**
+  String get todoStats;
+
+  /// No description provided for @totalTodos.
+  ///
+  /// In en, this message translates to:
+  /// **'Total'**
+  String get totalTodos;
+
+  /// No description provided for @completedCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Completed'**
+  String get completedCount;
+
+  /// No description provided for @pendingCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Pending'**
+  String get pendingCount;
+
+  /// No description provided for @highPriorityCount.
+  ///
+  /// In en, this message translates to:
+  /// **'High Priority'**
+  String get highPriorityCount;
+
+  /// No description provided for @byCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'By Category'**
+  String get byCategory;
+
+  /// No description provided for @addTodo.
+  ///
+  /// In en, this message translates to:
+  /// **'Add To Do'**
+  String get addTodo;
+
+  /// No description provided for @editTodo.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit To Do'**
+  String get editTodo;
+
+  /// No description provided for @todoTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Title'**
+  String get todoTitle;
+
+  /// No description provided for @todoCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Category'**
+  String get todoCategory;
+
+  /// No description provided for @selectCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Category'**
+  String get selectCategory;
+
+  /// No description provided for @todoDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Description'**
+  String get todoDescription;
+
+  /// No description provided for @todoPriority.
+  ///
+  /// In en, this message translates to:
+  /// **'Priority'**
+  String get todoPriority;
+
+  /// No description provided for @todoDeadline.
+  ///
+  /// In en, this message translates to:
+  /// **'Deadline'**
+  String get todoDeadline;
+
+  /// No description provided for @priorityHigh.
+  ///
+  /// In en, this message translates to:
+  /// **'High'**
+  String get priorityHigh;
+
+  /// No description provided for @priorityMedium.
+  ///
+  /// In en, this message translates to:
+  /// **'Medium'**
+  String get priorityMedium;
+
+  /// No description provided for @priorityLow.
+  ///
+  /// In en, this message translates to:
+  /// **'Low'**
+  String get priorityLow;
+
+  /// No description provided for @markAsComplete.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark as Complete'**
+  String get markAsComplete;
+
+  /// No description provided for @markAsIncomplete.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark as Incomplete'**
+  String get markAsIncomplete;
+
+  /// No description provided for @deleteTodo.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete To Do'**
+  String get deleteTodo;
+
+  /// No description provided for @todoDeleteConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete this to do item?'**
+  String get todoDeleteConfirm;
+
+  /// No description provided for @noTodosYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No to do items yet'**
+  String get noTodosYet;
+
+  /// No description provided for @noTodosInCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'No to do items in this category'**
+  String get noTodosInCategory;
+
+  /// No description provided for @addFirstTodo.
+  ///
+  /// In en, this message translates to:
+  /// **'Add your first to do item'**
+  String get addFirstTodo;
+
+  /// No description provided for @todoTitleRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a title'**
+  String get todoTitleRequired;
+
+  /// No description provided for @todoCategoryRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select a category'**
+  String get todoCategoryRequired;
+
+  /// No description provided for @selectDeadline.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Deadline'**
+  String get selectDeadline;
+
+  /// No description provided for @clearDeadline.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear Deadline'**
+  String get clearDeadline;
+
+  /// No description provided for @overdue.
+  ///
+  /// In en, this message translates to:
+  /// **'Overdue'**
+  String get overdue;
+
+  /// No description provided for @dueToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Due Today'**
+  String get dueToday;
+
+  /// No description provided for @dueSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Due Soon'**
+  String get dueSoon;
+
+  /// No description provided for @optional.
+  ///
+  /// In en, this message translates to:
+  /// **'Optional'**
+  String get optional;
+
+  /// No description provided for @updateSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Updated successfully'**
+  String get updateSuccess;
+
+  /// No description provided for @addSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Added successfully'**
+  String get addSuccess;
+
+  /// No description provided for @error.
+  ///
+  /// In en, this message translates to:
+  /// **'Error'**
+  String get error;
+
+  /// No description provided for @deleteSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Deleted successfully'**
+  String get deleteSuccess;
+
+  /// No description provided for @noPlannedDestinations.
+  ///
+  /// In en, this message translates to:
+  /// **'No planned destinations yet'**
+  String get noPlannedDestinations;
+
+  /// No description provided for @createDestinationPrompt.
+  ///
+  /// In en, this message translates to:
+  /// **'Create your first travel plan!'**
+  String get createDestinationPrompt;
+
+  /// No description provided for @completeFirstTrip.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete your first trip!'**
+  String get completeFirstTrip;
+
+  /// No description provided for @noDestinations.
+  ///
+  /// In en, this message translates to:
+  /// **'No destinations yet'**
+  String get noDestinations;
+
+  /// No description provided for @createFirstDestination.
+  ///
+  /// In en, this message translates to:
+  /// **'Start planning your trip!'**
+  String get createFirstDestination;
 }
 
 class _AppLocalizationsDelegate

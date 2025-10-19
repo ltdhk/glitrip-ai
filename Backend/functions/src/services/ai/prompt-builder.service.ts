@@ -80,6 +80,7 @@ export class PromptBuilderService {
     {
       "title": "待办事项",
       "description": "详细说明",
+      "category": "passport",
       "priority": "high"
     }
   ]
@@ -116,7 +117,7 @@ export class PromptBuilderService {
   - 高预算：五星酒店、米其林餐厅、私人导览
   - 中预算：四星酒店、特色餐厅、热门景点
   - 低预算：经济型酒店、当地小吃、免费景点
-- estimatedCost单位为人民币（CNY）
+- **重要：estimatedCost单位为人民币（CNY），请使用人民币计价**
 
 ### 6. 打包物品（packingItems）
 - 根据目的地气候、季节、活动类型定制
@@ -127,11 +128,13 @@ export class PromptBuilderService {
 ### 7. 待办事项（todoChecklist）
 - 包含出行前必须完成的事项
 - 如：订机票、订酒店、办签证、购买保险、兑换货币、预订餐厅等
+- **category必填字段**，可选值：passport（护照）, idCard（身份证）, visa（签证）, insurance（保险）, ticket（机票）, hotel（酒店预订）, carRental（租车）, other（其他）
 - priority可选值：high（高）, medium（中）, low（低）
 - 提供6-10个待办事项
+- 每个待办事项必须根据内容选择合适的category，例如："办理签证"应使用visa，"预订机票"应使用ticket
 
 ## 注意事项
-1. 所有费用单位为人民币（CNY）
+1. **所有费用单位必须为人民币（CNY），例如：¥150、¥2000等**
 2. 时间格式严格遵守要求（日期：YYYY-MM-DD，时间：HH:MM）
 3. 确保返回的是有效的JSON格式
 4. 行程要符合实际，考虑交通时间和体力安排
@@ -212,6 +215,7 @@ Please return the result strictly in the following JSON format, ensuring it is v
     {
       "title": "To-do Item",
       "description": "Detailed Description",
+      "category": "passport",
       "priority": "high"
     }
   ]
@@ -248,7 +252,7 @@ Please return the result strictly in the following JSON format, ensuring it is v
   - High budget: 5-star hotels, Michelin restaurants, private tours
   - Medium budget: 4-star hotels, specialty restaurants, popular attractions
   - Low budget: Budget hotels, local street food, free attractions
-- estimatedCost in CNY (Chinese Yuan)
+- **Important: estimatedCost in USD (US Dollars), please use USD pricing**
 
 ### 6. Packing Items
 - Customized based on destination climate, season, and activity types
@@ -259,11 +263,13 @@ Please return the result strictly in the following JSON format, ensuring it is v
 ### 7. To-do Checklist
 - Include essential tasks to complete before the trip
 - Such as: book flights, book hotels, apply for visa, buy insurance, exchange currency, reserve restaurants, etc.
+- **category is required**, options: passport, idCard, visa, insurance, ticket, hotel, carRental, other
 - priority options: high, medium, low
 - Provide 6-10 to-do items
+- Each to-do item must have an appropriate category based on its content, e.g., "Apply for visa" should use visa, "Book flight tickets" should use ticket
 
 ## Important Notes
-1. All costs in CNY (Chinese Yuan)
+1. **All costs must be in USD (US Dollars), for example: $20, $150, etc.**
 2. Strictly follow time formats (Date: YYYY-MM-DD, Time: HH:MM)
 3. Ensure the returned JSON is valid
 4. Itinerary should be realistic, considering travel time and physical arrangement

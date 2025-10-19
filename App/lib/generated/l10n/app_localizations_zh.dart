@@ -845,7 +845,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get createTemplateToReuse => '创建模板以重复使用物品';
 
   @override
-  String get noCompletedTrips => '暂无已完成行程';
+  String get noCompletedTrips => '还没有已完成的旅行';
 
   @override
   String get completedTripsWillAppearHere => '已完成的行程将显示在这里';
@@ -1094,4 +1094,172 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get categoryOther => '其他';
+
+  @override
+  String get currencySymbol => '¥';
+
+  @override
+  String get currencyCode => 'CNY';
+
+  @override
+  String get todos => '待办';
+
+  @override
+  String get currentTodoTrips => '当前行程';
+
+  @override
+  String get completedTodos => '已完成';
+
+  @override
+  String get allTodos => '全部';
+
+  @override
+  String get todoCategoryPassport => '护照';
+
+  @override
+  String get todoCategoryIdCard => '身份证';
+
+  @override
+  String get todoCategoryVisa => '签证';
+
+  @override
+  String get todoCategoryInsurance => '保险';
+
+  @override
+  String get todoCategoryTicket => '机票';
+
+  @override
+  String get todoCategoryHotel => '酒店预订';
+
+  @override
+  String get todoCategoryCarRental => '租车';
+
+  @override
+  String get todoCategoryOther => '其他';
+
+  @override
+  String get todoDetails => '待办明细';
+
+  @override
+  String get todoStats => '统计';
+
+  @override
+  String get totalTodos => '总数';
+
+  @override
+  String get completedCount => '已完成';
+
+  @override
+  String get pendingCount => '未完成';
+
+  @override
+  String get highPriorityCount => '高优先级';
+
+  @override
+  String get byCategory => '按类别';
+
+  @override
+  String get addTodo => '添加待办';
+
+  @override
+  String get editTodo => '编辑待办';
+
+  @override
+  String get todoTitle => '标题';
+
+  @override
+  String get todoCategory => '类别';
+
+  @override
+  String get selectCategory => '选择类别';
+
+  @override
+  String get todoDescription => '描述';
+
+  @override
+  String get todoPriority => '优先级';
+
+  @override
+  String get todoDeadline => '截止时间';
+
+  @override
+  String get priorityHigh => '高';
+
+  @override
+  String get priorityMedium => '中';
+
+  @override
+  String get priorityLow => '低';
+
+  @override
+  String get markAsComplete => '标记为完成';
+
+  @override
+  String get markAsIncomplete => '标记为未完成';
+
+  @override
+  String get deleteTodo => '删除待办';
+
+  @override
+  String get todoDeleteConfirm => '确定删除此待办事项？';
+
+  @override
+  String get noTodosYet => '还没有待办事项';
+
+  @override
+  String get noTodosInCategory => '此类别暂无待办事项';
+
+  @override
+  String get addFirstTodo => '添加第一个待办事项';
+
+  @override
+  String get todoTitleRequired => '请输入标题';
+
+  @override
+  String get todoCategoryRequired => '请选择类别';
+
+  @override
+  String get selectDeadline => '选择截止时间';
+
+  @override
+  String get clearDeadline => '清除截止时间';
+
+  @override
+  String get overdue => '已逾期';
+
+  @override
+  String get dueToday => '今天截止';
+
+  @override
+  String get dueSoon => '即将截止';
+
+  @override
+  String get optional => '可选';
+
+  @override
+  String get updateSuccess => '更新成功';
+
+  @override
+  String get addSuccess => '添加成功';
+
+  @override
+  String get error => '错误';
+
+  @override
+  String get deleteSuccess => '删除成功';
+
+  @override
+  String get noPlannedDestinations => '还没有计划中的目的地';
+
+  @override
+  String get createDestinationPrompt => '创建您的第一个旅行计划吧！';
+
+  @override
+  String get completeFirstTrip => '完成您的第一次旅行吧！';
+
+  @override
+  String get noDestinations => '还没有目的地';
+
+  @override
+  String get createFirstDestination => '开始规划您的旅行吧！';
 }

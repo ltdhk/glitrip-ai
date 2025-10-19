@@ -853,7 +853,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get createTemplateToReuse => 'Create templates to reuse items';
 
   @override
-  String get noCompletedTrips => 'No Completed Trips';
+  String get noCompletedTrips => 'No completed trips yet';
 
   @override
   String get completedTripsWillAppearHere => 'Completed trips will appear here';
@@ -1107,4 +1107,172 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get categoryOther => 'Other';
+
+  @override
+  String get currencySymbol => '\$';
+
+  @override
+  String get currencyCode => 'USD';
+
+  @override
+  String get todos => 'To Do';
+
+  @override
+  String get currentTodoTrips => 'Current Trips';
+
+  @override
+  String get completedTodos => 'Completed';
+
+  @override
+  String get allTodos => 'All';
+
+  @override
+  String get todoCategoryPassport => 'Passport';
+
+  @override
+  String get todoCategoryIdCard => 'ID Card';
+
+  @override
+  String get todoCategoryVisa => 'Visa';
+
+  @override
+  String get todoCategoryInsurance => 'Insurance';
+
+  @override
+  String get todoCategoryTicket => 'Flight Ticket';
+
+  @override
+  String get todoCategoryHotel => 'Hotel Booking';
+
+  @override
+  String get todoCategoryCarRental => 'Car Rental';
+
+  @override
+  String get todoCategoryOther => 'Other';
+
+  @override
+  String get todoDetails => 'To Do Details';
+
+  @override
+  String get todoStats => 'Statistics';
+
+  @override
+  String get totalTodos => 'Total';
+
+  @override
+  String get completedCount => 'Completed';
+
+  @override
+  String get pendingCount => 'Pending';
+
+  @override
+  String get highPriorityCount => 'High Priority';
+
+  @override
+  String get byCategory => 'By Category';
+
+  @override
+  String get addTodo => 'Add To Do';
+
+  @override
+  String get editTodo => 'Edit To Do';
+
+  @override
+  String get todoTitle => 'Title';
+
+  @override
+  String get todoCategory => 'Category';
+
+  @override
+  String get selectCategory => 'Select Category';
+
+  @override
+  String get todoDescription => 'Description';
+
+  @override
+  String get todoPriority => 'Priority';
+
+  @override
+  String get todoDeadline => 'Deadline';
+
+  @override
+  String get priorityHigh => 'High';
+
+  @override
+  String get priorityMedium => 'Medium';
+
+  @override
+  String get priorityLow => 'Low';
+
+  @override
+  String get markAsComplete => 'Mark as Complete';
+
+  @override
+  String get markAsIncomplete => 'Mark as Incomplete';
+
+  @override
+  String get deleteTodo => 'Delete To Do';
+
+  @override
+  String get todoDeleteConfirm => 'Delete this to do item?';
+
+  @override
+  String get noTodosYet => 'No to do items yet';
+
+  @override
+  String get noTodosInCategory => 'No to do items in this category';
+
+  @override
+  String get addFirstTodo => 'Add your first to do item';
+
+  @override
+  String get todoTitleRequired => 'Please enter a title';
+
+  @override
+  String get todoCategoryRequired => 'Please select a category';
+
+  @override
+  String get selectDeadline => 'Select Deadline';
+
+  @override
+  String get clearDeadline => 'Clear Deadline';
+
+  @override
+  String get overdue => 'Overdue';
+
+  @override
+  String get dueToday => 'Due Today';
+
+  @override
+  String get dueSoon => 'Due Soon';
+
+  @override
+  String get optional => 'Optional';
+
+  @override
+  String get updateSuccess => 'Updated successfully';
+
+  @override
+  String get addSuccess => 'Added successfully';
+
+  @override
+  String get error => 'Error';
+
+  @override
+  String get deleteSuccess => 'Deleted successfully';
+
+  @override
+  String get noPlannedDestinations => 'No planned destinations yet';
+
+  @override
+  String get createDestinationPrompt => 'Create your first travel plan!';
+
+  @override
+  String get completeFirstTrip => 'Complete your first trip!';
+
+  @override
+  String get noDestinations => 'No destinations yet';
+
+  @override
+  String get createFirstDestination => 'Start planning your trip!';
 }

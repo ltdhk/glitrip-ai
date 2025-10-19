@@ -135,6 +135,7 @@ class LocalDestinationRepository {
         'destination_id': destinationId,
         'title': todo.title,
         'description': todo.description,
+        'category': todo.category ?? 'other', // 添加category字段，默认为other
         'priority': todo.priority ?? 'medium',
         'is_completed': 0,
         'created_at': timestamp,

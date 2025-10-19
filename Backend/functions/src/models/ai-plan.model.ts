@@ -52,6 +52,7 @@ export interface PackingItem {
 export interface TodoItem {
   title: string;
   description?: string;
+  category: 'passport' | 'idCard' | 'visa' | 'insurance' | 'ticket' | 'hotel' | 'carRental' | 'other';
   priority?: 'high' | 'medium' | 'low';
 }
 

@@ -292,12 +292,17 @@ class AIPlanPreviewPage extends ConsumerWidget {
                               ),
                               if (activity.estimatedCost != null) ...[
                                 const SizedBox(height: 4),
-                                Text(
-                                  '费用: ¥${activity.estimatedCost!.toStringAsFixed(0)}',
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: Colors.grey[600],
-                                  ),
+                                Builder(
+                                  builder: (context) {
+                                    final l10n = AppLocalizations.of(context);
+                                    return Text(
+                                      '${l10n.estimatedCost}: ${l10n.currencySymbol}${activity.estimatedCost!.toStringAsFixed(0)}',
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        color: Colors.grey[600],
+                                      ),
+                                    );
+                                  },
                                 ),
                               ],
                             ],
