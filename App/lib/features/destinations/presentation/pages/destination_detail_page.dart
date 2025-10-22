@@ -1815,6 +1815,147 @@ class _DestinationDetailPageState extends ConsumerState<DestinationDetailPage>
     }
   }
 
+  Widget _buildTodosTab(
+      AppLocalizations l10n, WidgetRef ref, BuildContext context) {
+    final todosAsync =
+        ref.watch(todosByDestinationProvider(widget.destination.id));
+
+    return todosAsync.when(
+      data: (todos) {
+        // 按状态过滤待办事项
+        final pendingTodos =
+            todos.where((todo) => !todo.isCompleted).toList();
+        final completedTodos =
+            todos.where((todo) => todo.isCompleted).toList();
+
+        return SingleChildScrollView(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // 标题
+              Container(
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(16),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.1),
+                      spreadRadius: 1,
+                      blurRadius: 8,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
+                ),
+                child: Row(
+                  children: [
+                    const Icon(Icons.checklist, color: Colors.blue, size: 24),
+                    const SizedBox(width: 12),
+                    Text(
+                      l10n.todos,
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const Spacer(),
+                    Text(
+                      '${completedTodos.length}/${todos.length}',
+                      style: const TextStyle(
+                        fontSize: 16,
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 16),
+
+              // 待办事项列表
+              if (todos.isEmpty)
+                Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(40),
+                  child: Column(
+                    children: [
+                      Icon(
+                        Icons.check_circle_outline,
+                        size: 64,
+                        color: Colors.grey.withOpacity(0.5),
+                      ),
+                      const SizedBox(height: 16),
+                      Text(
+                        l10n.noTodosYet,
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        l10n.addFirstTodo,
+                        style: const TextStyle(
+                          color: Colors.grey,
+                          fontSize: 14,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
+                )
+              else ...[
+                // 待办中的任务
+                if (pendingTodos.isNotEmpty) ...[
+                  const Text(
+                    'Pending',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black87,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  ...pendingTodos.map((todo) => TodoItemCard(
+                        todo: todo,
+                        onTap: () => _editTodo(context, todo),
+                        onToggleComplete: (value) => _toggleTodoStatus(ref, todo),
+                        onDelete: () => _deleteTodo(ref, todo),
+                      )),
+                  const SizedBox(height: 16),
+                ],
+
+                // 已完成的任务
+                if (completedTodos.isNotEmpty) ...[
+                  Text(
+                    l10n.completed,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black87,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  ...completedTodos.map((todo) => TodoItemCard(
+                        todo: todo,
+                        onTap: () => _editTodo(context, todo),
+                        onToggleComplete: (value) => _toggleTodoStatus(ref, todo),
+                        onDelete: () => _deleteTodo(ref, todo),
+                      )),
+                ],
+              ],
+              const SizedBox(height: 80), // 为 FAB 留出空间
+            ],
+          ),
+        );
+      },
+      loading: () => const Center(child: CircularProgressIndicator()),
+      error: (error, stack) => Center(
+        child: Text('${l10n.error}: $error'),
+      ),
+    );
+  }
+
   Widget _buildMemoriesTab(
       AppLocalizations l10n, WidgetRef ref, BuildContext context) {
     final memories =
@@ -2062,6 +2203,40 @@ class _DestinationDetailPageState extends ConsumerState<DestinationDetailPage>
         ),
       ),
     );
+  }
+
+  void _navigateToAddTodo(BuildContext context, WidgetRef ref) async {
+    final result = await Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => AddEditTodoPage(destinationId: widget.destination.id),
+      ),
+    );
+    if (result == true) {
+      // 待办已更新，自动刷新
+    }
+  }
+
+  void _editTodo(BuildContext context, Todo todo) async {
+    final result = await Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => AddEditTodoPage(
+          destinationId: widget.destination.id,
+          todo: todo,
+        ),
+      ),
+    );
+    if (result == true) {
+      // 待办已更新，自动刷新
+    }
+  }
+
+  void _toggleTodoStatus(WidgetRef ref, Todo todo) {
+    final updatedTodo = todo.copyWith(isCompleted: !todo.isCompleted);
+    ref.read(todoNotifierProvider(widget.destination.id).notifier).updateTodo(updatedTodo);
+  }
+
+  void _deleteTodo(WidgetRef ref, Todo todo) {
+    ref.read(todoNotifierProvider(widget.destination.id).notifier).deleteTodo(todo.id);
   }
 
   void _navigateToAddMemory(BuildContext context, WidgetRef ref) async {
