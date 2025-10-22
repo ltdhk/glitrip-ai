@@ -149,34 +149,52 @@ class _TodosPageState extends ConsumerState<TodosPage>
         final destinationsAsync =
             ref.watch(destinationsByStatusProvider(DestinationStatus.planned));
 
-        return destinationsAsync.when(
-          data: (destinations) {
-            if (destinations.isEmpty) {
-              return _buildEmptyState(
-                l10n,
-                Icons.flight_takeoff,
-                l10n.noPlannedDestinations,
-                l10n.createDestinationPrompt,
-              );
-            }
-            return _buildDestinationsList(destinations, l10n);
+        return RefreshIndicator(
+          onRefresh: () async {
+            ref.invalidate(destinationsByStatusProvider(DestinationStatus.planned));
+            await Future.delayed(const Duration(milliseconds: 500));
           },
-          loading: () => const Center(child: CircularProgressIndicator()),
-          error: (error, stack) => Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Icon(Icons.error, size: 64, color: Colors.red),
-                const SizedBox(height: 16),
-                Text('${l10n.error}: $error'),
-                const SizedBox(height: 16),
-                ElevatedButton(
-                  onPressed: () => ref.refresh(
-                    destinationsByStatusProvider(DestinationStatus.planned),
+          child: destinationsAsync.when(
+            data: (destinations) {
+              if (destinations.isEmpty) {
+                return SingleChildScrollView(
+                  physics: const AlwaysScrollableScrollPhysics(),
+                  child: SizedBox(
+                    height: MediaQuery.of(context).size.height - 200,
+                    child: _buildEmptyState(
+                      l10n,
+                      Icons.flight_takeoff,
+                      l10n.noPlannedDestinations,
+                      l10n.createDestinationPrompt,
+                    ),
                   ),
-                  child: Text(l10n.retry),
+                );
+              }
+              return _buildDestinationsList(destinations, l10n);
+            },
+            loading: () => const Center(child: CircularProgressIndicator()),
+            error: (error, stack) => SingleChildScrollView(
+              physics: const AlwaysScrollableScrollPhysics(),
+              child: SizedBox(
+                height: MediaQuery.of(context).size.height - 200,
+                child: Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(Icons.error, size: 64, color: Colors.red),
+                      const SizedBox(height: 16),
+                      Text('${l10n.error}: $error'),
+                      const SizedBox(height: 16),
+                      ElevatedButton(
+                        onPressed: () => ref.refresh(
+                          destinationsByStatusProvider(DestinationStatus.planned),
+                        ),
+                        child: Text(l10n.retry),
+                      ),
+                    ],
+                  ),
                 ),
-              ],
+              ),
             ),
           ),
         );
@@ -190,34 +208,52 @@ class _TodosPageState extends ConsumerState<TodosPage>
         final destinationsAsync =
             ref.watch(destinationsByStatusProvider(DestinationStatus.visited));
 
-        return destinationsAsync.when(
-          data: (destinations) {
-            if (destinations.isEmpty) {
-              return _buildEmptyState(
-                l10n,
-                Icons.check_circle_outline,
-                l10n.noCompletedTrips,
-                l10n.completeFirstTrip,
-              );
-            }
-            return _buildDestinationsList(destinations, l10n);
+        return RefreshIndicator(
+          onRefresh: () async {
+            ref.invalidate(destinationsByStatusProvider(DestinationStatus.visited));
+            await Future.delayed(const Duration(milliseconds: 500));
           },
-          loading: () => const Center(child: CircularProgressIndicator()),
-          error: (error, stack) => Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Icon(Icons.error, size: 64, color: Colors.red),
-                const SizedBox(height: 16),
-                Text('${l10n.error}: $error'),
-                const SizedBox(height: 16),
-                ElevatedButton(
-                  onPressed: () => ref.refresh(
-                    destinationsByStatusProvider(DestinationStatus.visited),
+          child: destinationsAsync.when(
+            data: (destinations) {
+              if (destinations.isEmpty) {
+                return SingleChildScrollView(
+                  physics: const AlwaysScrollableScrollPhysics(),
+                  child: SizedBox(
+                    height: MediaQuery.of(context).size.height - 200,
+                    child: _buildEmptyState(
+                      l10n,
+                      Icons.check_circle_outline,
+                      l10n.noCompletedTrips,
+                      l10n.completeFirstTrip,
+                    ),
                   ),
-                  child: Text(l10n.retry),
+                );
+              }
+              return _buildDestinationsList(destinations, l10n);
+            },
+            loading: () => const Center(child: CircularProgressIndicator()),
+            error: (error, stack) => SingleChildScrollView(
+              physics: const AlwaysScrollableScrollPhysics(),
+              child: SizedBox(
+                height: MediaQuery.of(context).size.height - 200,
+                child: Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(Icons.error, size: 64, color: Colors.red),
+                      const SizedBox(height: 16),
+                      Text('${l10n.error}: $error'),
+                      const SizedBox(height: 16),
+                      ElevatedButton(
+                        onPressed: () => ref.refresh(
+                          destinationsByStatusProvider(DestinationStatus.visited),
+                        ),
+                        child: Text(l10n.retry),
+                      ),
+                    ],
+                  ),
                 ),
-              ],
+              ),
             ),
           ),
         );
@@ -230,32 +266,50 @@ class _TodosPageState extends ConsumerState<TodosPage>
       builder: (context, ref, child) {
         final destinationsAsync = ref.watch(destinationsProvider);
 
-        return destinationsAsync.when(
-          data: (destinations) {
-            if (destinations.isEmpty) {
-              return _buildEmptyState(
-                l10n,
-                Icons.explore_off,
-                l10n.noDestinations,
-                l10n.createFirstDestination,
-              );
-            }
-            return _buildDestinationsList(destinations, l10n);
+        return RefreshIndicator(
+          onRefresh: () async {
+            ref.invalidate(destinationsProvider);
+            await Future.delayed(const Duration(milliseconds: 500));
           },
-          loading: () => const Center(child: CircularProgressIndicator()),
-          error: (error, stack) => Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Icon(Icons.error, size: 64, color: Colors.red),
-                const SizedBox(height: 16),
-                Text('${l10n.error}: $error'),
-                const SizedBox(height: 16),
-                ElevatedButton(
-                  onPressed: () => ref.refresh(destinationsProvider),
-                  child: Text(l10n.retry),
+          child: destinationsAsync.when(
+            data: (destinations) {
+              if (destinations.isEmpty) {
+                return SingleChildScrollView(
+                  physics: const AlwaysScrollableScrollPhysics(),
+                  child: SizedBox(
+                    height: MediaQuery.of(context).size.height - 200,
+                    child: _buildEmptyState(
+                      l10n,
+                      Icons.explore_off,
+                      l10n.noDestinations,
+                      l10n.createFirstDestination,
+                    ),
+                  ),
+                );
+              }
+              return _buildDestinationsList(destinations, l10n);
+            },
+            loading: () => const Center(child: CircularProgressIndicator()),
+            error: (error, stack) => SingleChildScrollView(
+              physics: const AlwaysScrollableScrollPhysics(),
+              child: SizedBox(
+                height: MediaQuery.of(context).size.height - 200,
+                child: Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(Icons.error, size: 64, color: Colors.red),
+                      const SizedBox(height: 16),
+                      Text('${l10n.error}: $error'),
+                      const SizedBox(height: 16),
+                      ElevatedButton(
+                        onPressed: () => ref.refresh(destinationsProvider),
+                        child: Text(l10n.retry),
+                      ),
+                    ],
+                  ),
                 ),
-              ],
+              ),
             ),
           ),
         );
@@ -266,6 +320,7 @@ class _TodosPageState extends ConsumerState<TodosPage>
   Widget _buildDestinationsList(
       List<Destination> destinations, AppLocalizations l10n) {
     return ListView.builder(
+      physics: const AlwaysScrollableScrollPhysics(),
       padding: const EdgeInsets.all(16.0),
       itemCount: destinations.length,
       itemBuilder: (context, index) {

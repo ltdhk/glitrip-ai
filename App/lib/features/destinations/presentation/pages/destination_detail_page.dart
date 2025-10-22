@@ -19,6 +19,10 @@ import '../../../memories/presentation/pages/add_memory_page.dart';
 import '../../../travel_buddy/presentation/providers/travel_buddy_provider.dart';
 import '../../../travel_buddy/domain/entities/travel_buddy.dart'
     as buddy_entities;
+import '../../../todos/domain/entities/todo.dart';
+import '../../../todos/presentation/providers/todo_providers.dart';
+import '../../../todos/presentation/pages/add_edit_todo_page.dart';
+import '../../../todos/presentation/widgets/todo_item_card.dart';
 import '../../../../ad_helper.dart';
 import 'dart:math' as math;
 
@@ -45,7 +49,7 @@ class _DestinationDetailPageState extends ConsumerState<DestinationDetailPage>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 5, vsync: this);
+    _tabController = TabController(length: 6, vsync: this);
     _tabController!.addListener(_handleTabChange);
     _loadBannerAd();
   }
@@ -244,6 +248,7 @@ class _DestinationDetailPageState extends ConsumerState<DestinationDetailPage>
                           Tab(text: l10n.budget),
                           Tab(text: l10n.itinerary),
                           Tab(text: l10n.packing),
+                          Tab(text: l10n.todos),
                           Tab(text: l10n.memories),
                         ],
                       ),
@@ -260,6 +265,7 @@ class _DestinationDetailPageState extends ConsumerState<DestinationDetailPage>
                                 _buildBudgetTab(l10n, context, ref),
                                 _buildItineraryTab(l10n, context, ref),
                                 _buildPackingTab(l10n, ref, context),
+                                _buildTodosTab(l10n, ref, context),
                                 _buildMemoriesTab(l10n, ref, context),
                               ],
                             ),
@@ -291,6 +297,19 @@ class _DestinationDetailPageState extends ConsumerState<DestinationDetailPage>
                                 ),
                               )
                             else if (_currentTabIndex == 4)
+                              // 待办标签页
+                              Positioned(
+                                right: 16,
+                                bottom: 80,
+                                child: FloatingActionButton(
+                                  onPressed: () =>
+                                      _navigateToAddTodo(context, ref),
+                                  backgroundColor: Theme.of(context).colorScheme.primary,
+                                  child: const Icon(Icons.add,
+                                      color: Colors.white),
+                                ),
+                              )
+                            else if (_currentTabIndex == 5)
                               // 回忆标签页
                               Positioned(
                                 right: 16,
