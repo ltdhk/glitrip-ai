@@ -7,7 +7,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { AuthService } from '../services/auth/auth.service';
 import { createSuccessResponse } from '../models';
-import { HttpStatus } from '../config/constants';
+import { HttpStatus, ErrorCode } from '../config/constants';
 import { AuthRequest } from '../middleware/auth.middleware';
 
 export class AuthController {
@@ -106,6 +106,30 @@ export class AuthController {
           'Token刷新成功'
         )
       );
+    } catch (error: any) {
+      next(error);
+    }
+  };
+
+  /**
+   * 删除当前用户账户
+   * DELETE /api/v1/auth/delete
+   */
+  deleteAccount = async (
+    req: AuthRequest,
+    res: Response,
+    next: NextFunction
+  ): Promise<void> => {
+    try {
+      const userId = req.user?.id;
+
+      if (!userId) {
+        throw new Error(ErrorCode.UNAUTHORIZED);
+      }
+
+      await this.authService.deleteAccount(userId);
+
+      res.json(createSuccessResponse(null, '账户删除成功'));
     } catch (error: any) {
       next(error);
     }

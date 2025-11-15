@@ -34,4 +34,4 @@
 -keep class * implements com.google.gson.JsonDeserializer
 
 # Keep data classes
--keep class com.geeklabs.glitrip.** { *; }
+-keep class com.geeklabs.glitripai.** { *; }

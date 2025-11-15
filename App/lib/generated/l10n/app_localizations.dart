@@ -101,7 +101,7 @@ abstract class AppLocalizations {
   /// No description provided for @appTitle.
   ///
   /// In en, this message translates to:
-  /// **'Glitrip Planner'**
+  /// **'Glitrip AI'**
   String get appTitle;
 
   /// No description provided for @tagline.
@@ -151,6 +151,108 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'My Profile'**
   String get myProfile;
+
+  /// No description provided for @accountSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Account & Support'**
+  String get accountSettings;
+
+  /// No description provided for @logoutAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Log Out'**
+  String get logoutAction;
+
+  /// No description provided for @logoutDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign out of your current account'**
+  String get logoutDescription;
+
+  /// No description provided for @logoutSuccessMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Logged out successfully'**
+  String get logoutSuccessMessage;
+
+  /// No description provided for @deleteAccountAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Account'**
+  String get deleteAccountAction;
+
+  /// No description provided for @deleteAccountDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Permanently remove your account and local data'**
+  String get deleteAccountDescription;
+
+  /// No description provided for @deleteAccountSuccessMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Your account has been deleted'**
+  String get deleteAccountSuccessMessage;
+
+  /// No description provided for @contactUsAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact Us'**
+  String get contactUsAction;
+
+  /// No description provided for @contactUsDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Get support or send feedback'**
+  String get contactUsDescription;
+
+  /// No description provided for @contactDialogMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'We are here to help. Reach out anytime and we will respond as soon as possible.'**
+  String get contactDialogMessage;
+
+  /// No description provided for @contactEmailLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Support Email'**
+  String get contactEmailLabel;
+
+  /// No description provided for @supportEmailAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'support@glitrip.com'**
+  String get supportEmailAddress;
+
+  /// No description provided for @emailCopiedMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Email copied to clipboard'**
+  String get emailCopiedMessage;
+
+  /// No description provided for @confirmLogoutTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Logout'**
+  String get confirmLogoutTitle;
+
+  /// No description provided for @confirmLogoutMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to log out of your account?'**
+  String get confirmLogoutMessage;
+
+  /// No description provided for @confirmDeleteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Account'**
+  String get confirmDeleteTitle;
+
+  /// No description provided for @confirmDeleteMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'This action will permanently remove your account and related data. This cannot be undone. Continue?'**
+  String get confirmDeleteMessage;
 
   /// No description provided for @searchDestinations.
   ///
@@ -343,6 +445,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Cancel'**
   String get cancel;
+
+  /// No description provided for @copy.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy'**
+  String get copy;
 
   /// No description provided for @delete.
   ///
@@ -835,6 +943,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Travel Statistics'**
   String get travelStatistics;
+
+  /// No description provided for @membershipLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'Membership Level'**
+  String get membershipLevel;
+
+  /// No description provided for @membershipFree.
+  ///
+  /// In en, this message translates to:
+  /// **'Free Member'**
+  String get membershipFree;
+
+  /// No description provided for @membershipVip.
+  ///
+  /// In en, this message translates to:
+  /// **'VIP Member'**
+  String get membershipVip;
+
+  /// No description provided for @membershipExpiry.
+  ///
+  /// In en, this message translates to:
+  /// **'Valid until {date}'**
+  String membershipExpiry(String date);
+
+  /// No description provided for @aiUsageLimit.
+  ///
+  /// In en, this message translates to:
+  /// **'AI quota: used {used}/{total}, remaining {remaining}'**
+  String aiUsageLimit(int used, int total, int remaining);
+
+  /// No description provided for @upgradeOrRenewMembership.
+  ///
+  /// In en, this message translates to:
+  /// **'Upgrade / Renew Membership'**
+  String get upgradeOrRenewMembership;
+
+  /// No description provided for @upgradeMembership.
+  ///
+  /// In en, this message translates to:
+  /// **'Upgrade Membership'**
+  String get upgradeMembership;
+
+  /// No description provided for @renewMembership.
+  ///
+  /// In en, this message translates to:
+  /// **'Renew Membership'**
+  String get renewMembership;
 
   /// No description provided for @total.
   ///

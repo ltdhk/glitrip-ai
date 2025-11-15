@@ -9,7 +9,7 @@ import { AiServiceFactory, IAiService } from '../services/ai/ai-service.factory'
 import { UserService } from '../services/user/user.service';
 import { UsageService } from '../services/user/usage.service';
 import { createSuccessResponse, createErrorResponse, PlanningContext } from '../models';
-import { HttpStatus, ErrorCode } from '../config/constants';
+import { HttpStatus, ErrorCode, USAGE_LIMITS } from '../config/constants';
 import { AuthRequest } from '../middleware/auth.middleware';
 
 export class AiController {
@@ -83,7 +83,7 @@ export class AiController {
 
       // 4. 调用AI生成
       console.log(`Generating plan for user ${userId}:`, context);
-      const plan = await this.aiService.generateDestinationPlan(context);
+      const plan = await this.aiService.generateWithRetry(context, 3);
 
       // 5. 记录生成历史
       await this.userService.recordAiGeneration(userId, context, 'success');
@@ -130,6 +130,7 @@ export class AiController {
     try {
       const userId = req.user!.id;
 
+      const currentYear = new Date().getFullYear();
       const user = await this.userService.getUser(userId);
       if (!user) {
         res
@@ -138,20 +139,20 @@ export class AiController {
         return;
       }
 
-      const usage = await this.usageService.getUsage(userId);
-
-      const limit = user.subscription_type === 'vip' ? 1000 : 3;
-      const used = usage?.ai_generation_count || 0;
-      const remaining = Math.max(0, limit - used);
+      const usage = await this.usageService.getUsage(userId, user.subscription_type);
+      const totalQuota =
+        usage.ai_generation_limit ?? USAGE_LIMITS[user.subscription_type];
+      const usedCount = usage.ai_generation_count ?? 0;
+      const remainingQuota = Math.max(0, totalQuota - usedCount);
 
       res.json(
         createSuccessResponse({
-          year: new Date().getFullYear(),
-          used,
-          limit,
-          remaining,
+          year: usage?.year ?? currentYear,
+          usedCount,
+          totalQuota,
+          remainingQuota,
           subscriptionType: user.subscription_type,
-          resetDate: `${new Date().getFullYear() + 1}-01-01T00:00:00Z`,
+          lastResetDate: usage?.last_reset_date ?? null,
         })
       );
     } catch (error: any) {

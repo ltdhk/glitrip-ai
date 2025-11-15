@@ -76,7 +76,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                   ),
                   const SizedBox(height: 24),
                   Text(
-                    'GliTrip',
+                    'Glitrip AI',
                     textAlign: TextAlign.center,
                     style: theme.textTheme.headlineLarge?.copyWith(
                       color: theme.colorScheme.primary,

@@ -1,4 +1,4 @@
-package com.geeklabs.glitrip
+package com.geeklabs.glitripai
 
 import android.view.LayoutInflater
 import android.widget.Button
@@ -49,4 +49,3 @@ class NativeAdFactoryMini(
         return adView
     }
 }
-

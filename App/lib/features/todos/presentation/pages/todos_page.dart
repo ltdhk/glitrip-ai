@@ -97,7 +97,13 @@ class _TodosPageState extends ConsumerState<TodosPage>
                     children: [
                       const Icon(Icons.flight_takeoff, size: 16),
                       const SizedBox(width: 4),
-                      Text(l10n.currentTodoTrips),
+                      Flexible(
+                        child: Text(
+                          l10n.currentTodoTrips,
+                          overflow: TextOverflow.ellipsis,
+                          softWrap: false,
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -107,7 +113,13 @@ class _TodosPageState extends ConsumerState<TodosPage>
                     children: [
                       const Icon(Icons.check_circle, size: 16),
                       const SizedBox(width: 4),
-                      Text(l10n.completedTodos),
+                      Flexible(
+                        child: Text(
+                          l10n.completedTodos,
+                          overflow: TextOverflow.ellipsis,
+                          softWrap: false,
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -117,7 +129,13 @@ class _TodosPageState extends ConsumerState<TodosPage>
                     children: [
                       const Icon(Icons.list, size: 16),
                       const SizedBox(width: 4),
-                      Text(l10n.allTodos),
+                      Flexible(
+                        child: Text(
+                          l10n.allTodos,
+                          overflow: TextOverflow.ellipsis,
+                          softWrap: false,
+                        ),
+                      ),
                     ],
                   ),
                 ),

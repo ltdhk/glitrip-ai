@@ -135,8 +135,8 @@ class LocalDestinationRepository {
         'destination_id': destinationId,
         'title': todo.title,
         'description': todo.description,
-        'category': todo.category ?? 'other', // 添加category字段，默认为other
-        'priority': todo.priority ?? 'medium',
+        'category': _mapTodoCategory(todo.category),
+        'priority': _mapTodoPriority(todo.priority),
         'is_completed': 0,
         'created_at': timestamp,
         'updated_at': timestamp,
@@ -182,5 +182,80 @@ class LocalDestinationRepository {
       'other': 'other',
     };
     return categoryMap[category.toLowerCase()] ?? 'other';
+  }
+
+  /// 映射AI生成的待办事项分类到本地受限枚举
+  String _mapTodoCategory(String? category) {
+    if (category == null) return 'other';
+    final normalized = category.trim().toLowerCase();
+
+    const directMap = {
+      'passport': 'passport',
+      '护照': 'passport',
+      'documents': 'passport',
+      'document': 'passport',
+      'idcard': 'idCard',
+      'id_card': 'idCard',
+      '身份证': 'idCard',
+      'visa': 'visa',
+      '签证': 'visa',
+      'insurance': 'insurance',
+      'travel_insurance': 'insurance',
+      '保险': 'insurance',
+      'ticket': 'ticket',
+      'tickets': 'ticket',
+      'flight': 'ticket',
+      'train': 'ticket',
+      'hotel': 'hotel',
+      'accommodation': 'hotel',
+      'stay': 'hotel',
+      'booking': 'hotel',
+      'car': 'carRental',
+      'car_rental': 'carRental',
+      'carrental': 'carRental',
+      'rental': 'carRental',
+    };
+
+    if (directMap.containsKey(normalized)) {
+      return directMap[normalized]!;
+    }
+
+    if (normalized.contains('passport') || normalized.contains('document')) {
+      return 'passport';
+    }
+    if (normalized.contains('id')) {
+      return 'idCard';
+    }
+    if (normalized.contains('visa')) {
+      return 'visa';
+    }
+    if (normalized.contains('insur')) {
+      return 'insurance';
+    }
+    if (normalized.contains('ticket') ||
+        normalized.contains('flight') ||
+        normalized.contains('train') ||
+        normalized.contains('transport')) {
+      return 'ticket';
+    }
+    if (normalized.contains('hotel') ||
+        normalized.contains('accommodation') ||
+        normalized.contains('stay') ||
+        normalized.contains('booking')) {
+      return 'hotel';
+    }
+    if (normalized.contains('car') || normalized.contains('rental')) {
+      return 'carRental';
+    }
+
+    return 'other';
+  }
+
+  /// 映射AI生成的优先级，默认返回medium
+  String _mapTodoPriority(String? priority) {
+    if (priority == null) return 'medium';
+    final normalized = priority.trim().toLowerCase();
+    const allowed = {'high', 'medium', 'low'};
+    return allowed.contains(normalized) ? normalized : 'medium';
   }
 }

@@ -1,0 +1,62 @@
+# ==========================================
+# GliTrip Backend - Environment Variables
+# ==========================================
+
+# Node Environment
+NODE_ENV=development
+
+# Supabase Configuration
+SUPABASE_URL=https://aqockrqtuxcymbpoqrdr.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFxb2NrcnF0dXhjeW1icG9xcmRyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA3MzI4ODQsImV4cCI6MjA3NjMwODg4NH0.xmkvdU8TVDb9z91z7fIsM0xqJjKTlEpcB0UT6WSC7Y8
+
+# JWT Configuration
+JWT_SECRET=your-super-secret-jwt-key-change-this-in-production-min-32-chars
+JWT_EXPIRES_IN=7d
+
+# Google Gemini AI
+GEMINI_API_KEY=AIzaSyDNsMh-hCRIz1GxXJeIwsNouvvorlRFt5w
+
+# API Configuration
+PORT=3000
+CORS_ORIGIN=*
+# google or openrouter
+AI_PROVIDER=openrouter
+LAOZHANG_API_KEY=asdasdasdas
+
+OPENROUTER_API_KEY=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
+OPENROUTER_SITE_URL=https://www.geekteam.com
+OPENROUTER_SITE_NAME=GliTrip
+OPENROUTER_BASE_URL=https://openrouter.ai/api/v1
+OPENROUTER_MODEL=google/gemini-2.0-flash-lite-001
+#OPENROUTER_MODEL=minimax/minimax-m2:free
+
+# Rate Limiting
+RATE_LIMIT_WINDOW_MS=900000
+RATE_LIMIT_MAX_REQUESTS=100
+
+# Usage Limits
+FREE_USER_LIMIT=3
+VIP_USER_LIMIT=500
+
+# Logging
+LOG_LEVEL=info
+
+# ==========================================
+# 获取这些值的方法:
+# ==========================================
+#
+# 1. SUPABASE_URL 和 SUPABASE_SERVICE_ROLE_KEY:
+#    - 访问 https://app.supabase.com
+#    - 选择项目
+#    - Settings > API
+#    - 复制 "Project URL" 和 "service_role" key
+#
+# 2. GEMINI_API_KEY:
+#    - 访问 https://makersuite.google.com/app/apikey
+#    - 创建API密钥
+#
+# 3. JWT_SECRET:
+#    - 生成强随机字符串（至少32字符）
+#    - 可以使用: node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+#
+# ==========================================

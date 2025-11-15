@@ -50,4 +50,11 @@ router.get('/me', authenticateUser, authController.me);
  */
 router.post('/refresh', authenticateUser, authController.refreshToken);
 
+/**
+ * @route   DELETE /api/v1/auth/delete
+ * @desc    Delete current user account
+ * @access  Private
+ */
+router.delete('/delete', authenticateUser, authController.deleteAccount);
+
 export default router;

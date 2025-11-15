@@ -107,7 +107,13 @@ class _PackingPageState extends ConsumerState<PackingPage>
                     children: [
                       const Icon(Icons.flight_takeoff, size: 16),
                       const SizedBox(width: 4),
-                      Text(l10n.currentTrips),
+                      Flexible(
+                        child: Text(
+                          l10n.currentTrips,
+                          overflow: TextOverflow.ellipsis,
+                          softWrap: false,
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -117,7 +123,13 @@ class _PackingPageState extends ConsumerState<PackingPage>
                     children: [
                       const Icon(Icons.bookmark, size: 16),
                       const SizedBox(width: 4),
-                      Text(l10n.templates),
+                      Flexible(
+                        child: Text(
+                          l10n.templates,
+                          overflow: TextOverflow.ellipsis,
+                          softWrap: false,
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -127,7 +139,13 @@ class _PackingPageState extends ConsumerState<PackingPage>
                     children: [
                       const Icon(Icons.history, size: 16),
                       const SizedBox(width: 4),
-                      Text(l10n.history),
+                      Flexible(
+                        child: Text(
+                          l10n.history,
+                          overflow: TextOverflow.ellipsis,
+                          softWrap: false,
+                        ),
+                      ),
                     ],
                   ),
                 ),

@@ -23,6 +23,7 @@ import '../../../todos/domain/entities/todo.dart';
 import '../../../todos/presentation/providers/todo_providers.dart';
 import '../../../todos/presentation/pages/add_edit_todo_page.dart';
 import '../../../todos/presentation/widgets/todo_item_card.dart';
+import '../../../auth/presentation/providers/auth_provider.dart';
 import '../../../../ad_helper.dart';
 import 'dart:math' as math;
 
@@ -95,6 +96,8 @@ class _DestinationDetailPageState extends ConsumerState<DestinationDetailPage>
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
+    final authState = ref.watch(authStateProvider);
+    final shouldShowAds = !(authState.user?.isVip ?? false);
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.destination.name),
@@ -255,13 +258,13 @@ class _DestinationDetailPageState extends ConsumerState<DestinationDetailPage>
                       SizedBox(
                         height: MediaQuery.of(context).size.height -
                             350 -
-                            (_isAdLoaded && _currentTabIndex == 0 ? 50 : 0),
+                            (_isAdLoaded && _currentTabIndex == 0 && shouldShowAds ? 50 : 0),
                         child: Stack(
                           children: [
                             TabBarView(
                               controller: _tabController,
                               children: [
-                                _buildOverviewTab(l10n),
+                            _buildOverviewTab(l10n),
                                 _buildBudgetTab(l10n, context, ref),
                                 _buildItineraryTab(l10n, context, ref),
                                 _buildPackingTab(l10n, ref, context),
@@ -332,7 +335,7 @@ class _DestinationDetailPageState extends ConsumerState<DestinationDetailPage>
             ),
           ),
           // 底部横幅广告 - 只在总览页显示
-          if (_isAdLoaded && _bannerAd != null && _currentTabIndex == 0)
+          if (shouldShowAds && _isAdLoaded && _bannerAd != null && _currentTabIndex == 0)
             Container(
               width: double.infinity,
               padding: EdgeInsets.only(
@@ -1918,7 +1921,7 @@ class _DestinationDetailPageState extends ConsumerState<DestinationDetailPage>
                   const SizedBox(height: 8),
                   ...pendingTodos.map((todo) => TodoItemCard(
                         todo: todo,
-                        onTap: () => _editTodo(context, todo),
+                        onTap: null,
                         onToggleComplete: (value) => _toggleTodoStatus(ref, todo),
                         onDelete: () => _deleteTodo(ref, todo),
                       )),
@@ -1938,7 +1941,7 @@ class _DestinationDetailPageState extends ConsumerState<DestinationDetailPage>
                   const SizedBox(height: 8),
                   ...completedTodos.map((todo) => TodoItemCard(
                         todo: todo,
-                        onTap: () => _editTodo(context, todo),
+                        onTap: null,
                         onToggleComplete: (value) => _toggleTodoStatus(ref, todo),
                         onDelete: () => _deleteTodo(ref, todo),
                       )),
@@ -2216,27 +2219,46 @@ class _DestinationDetailPageState extends ConsumerState<DestinationDetailPage>
     }
   }
 
-  void _editTodo(BuildContext context, Todo todo) async {
-    final result = await Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) => AddEditTodoPage(
-          destinationId: widget.destination.id,
-          todo: todo,
-        ),
-      ),
-    );
-    if (result == true) {
-      // 待办已更新，自动刷新
+  Future<void> _toggleTodoStatus(WidgetRef ref, Todo todo) async {
+    final l10n = AppLocalizations.of(context);
+    try {
+      final repository = await ref.read(todoRepositoryProvider.future);
+      final updatedTodo = todo.copyWith(isCompleted: !todo.isCompleted);
+      await repository.updateTodo(updatedTodo);
+      ref.invalidate(todosByDestinationProvider(widget.destination.id));
+    } catch (error) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('${l10n.error}: $error'),
+            backgroundColor: Theme.of(context).colorScheme.error,
+          ),
+        );
+      }
     }
   }
 
-  void _toggleTodoStatus(WidgetRef ref, Todo todo) {
-    final updatedTodo = todo.copyWith(isCompleted: !todo.isCompleted);
-    ref.read(todoNotifierProvider(widget.destination.id).notifier).updateTodo(updatedTodo);
-  }
-
-  void _deleteTodo(WidgetRef ref, Todo todo) {
-    ref.read(todoNotifierProvider(widget.destination.id).notifier).deleteTodo(todo.id);
+  Future<void> _deleteTodo(WidgetRef ref, Todo todo) async {
+    final l10n = AppLocalizations.of(context);
+    try {
+      final repository = await ref.read(todoRepositoryProvider.future);
+      await repository.deleteTodo(todo.id);
+      ref.invalidate(todosByDestinationProvider(widget.destination.id));
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(l10n.deleteSuccess)),
+        );
+      }
+    } catch (error) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('${l10n.error}: $error'),
+            backgroundColor: Theme.of(context).colorScheme.error,
+          ),
+        );
+      }
+    }
   }
 
   void _navigateToAddMemory(BuildContext context, WidgetRef ref) async {

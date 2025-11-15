@@ -40,3 +40,4 @@ temp/
 # Service account keys (NEVER commit these!)
 *-key.json
 service-account*.json
+.vercel

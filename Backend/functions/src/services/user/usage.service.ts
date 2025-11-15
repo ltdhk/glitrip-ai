@@ -18,7 +18,7 @@ export class UsageService {
     subscriptionType: 'free' | 'vip'
   ): Promise<{ allowed: boolean; remaining: number; limit: number }> {
     const year = new Date().getFullYear();
-    const limit = USAGE_LIMITS[subscriptionType];
+    const defaultLimit = USAGE_LIMITS[subscriptionType];
 
     try {
       // 1. 查询当前使用量
@@ -43,7 +43,7 @@ export class UsageService {
             user_id: userId,
             year,
             ai_generation_count: 1,
-            ai_generation_limit: limit,
+            ai_generation_limit: defaultLimit,
           });
 
         if (insertError) {
@@ -53,17 +53,19 @@ export class UsageService {
 
         return {
           allowed: true,
-          remaining: limit - 1,
-          limit,
+          remaining: defaultLimit - 1,
+          limit: defaultLimit,
         };
       }
 
+      const effectiveLimit = usage.ai_generation_limit ?? defaultLimit;
+
       // 4. 检查是否超限
-      if (usage.ai_generation_count >= limit) {
+      if (usage.ai_generation_count >= effectiveLimit) {
         return {
           allowed: false,
           remaining: 0,
-          limit,
+          limit: effectiveLimit,
         };
       }
 
@@ -84,8 +86,8 @@ export class UsageService {
 
       return {
         allowed: true,
-        remaining: limit - newCount,
-        limit,
+        remaining: effectiveLimit - newCount,
+        limit: effectiveLimit,
       };
     } catch (error) {
       console.error('Error in checkAndDeductUsage:', error);
@@ -94,10 +96,14 @@ export class UsageService {
   }
 
   /**
-   * 获取用户当前年度的使用量
+   * 获取用户当前年度的使用量，如果不存在则创建
    */
-  async getUsage(userId: string): Promise<UserUsage | null> {
+  async getUsage(
+    userId: string,
+    subscriptionType: 'free' | 'vip'
+  ): Promise<UserUsage> {
     const year = new Date().getFullYear();
+    const limit = USAGE_LIMITS[subscriptionType];
 
     const { data, error } = await supabase
       .from('user_usage')
@@ -106,15 +112,33 @@ export class UsageService {
       .eq('year', year)
       .single();
 
-    if (error) {
-      if (error.code === 'PGRST116') {
-        return null; // 未找到记录
-      }
+    if (error && error.code !== 'PGRST116') {
       console.error('Failed to get usage:', error);
       throw error;
     }
 
-    return data as UserUsage;
+    if (data) {
+      return data as UserUsage;
+    }
+
+    const { data: newUsage, error: insertError } = await supabase
+      .from('user_usage')
+      .insert({
+        user_id: userId,
+        year,
+        ai_generation_count: 0,
+        ai_generation_limit: limit,
+        last_reset_date: new Date().toISOString(),
+      })
+      .select('*')
+      .single();
+
+    if (insertError) {
+      console.error('Failed to create usage record:', insertError);
+      throw insertError;
+    }
+
+    return newUsage as UserUsage;
   }
 
   /**

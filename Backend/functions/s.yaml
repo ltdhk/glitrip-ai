@@ -1,0 +1,53 @@
+edition: 3.0.0
+name: glitrip-functions
+access: default
+
+resources:
+  api:
+    component: fc3
+    props:
+      region: ap-southeast-1
+      service:
+        name: glitrip-backend
+        description: GliTrip HTTP API
+        logConfig: auto
+      functionName: api
+      runtime: nodejs18
+      handler: dist/fc-handler.handler
+      code: .
+      memorySize: 1024
+      timeout: 60
+      environmentVariables:
+        NODE_ENV: production
+        SUPABASE_URL: ${env(SUPABASE_URL)}
+        SUPABASE_SERVICE_ROLE_KEY: ${env(SUPABASE_SERVICE_ROLE_KEY)}
+        JWT_SECRET: ${env(JWT_SECRET)}
+        JWT_EXPIRES_IN: 7d
+        GEMINI_API_KEY: ${env(GEMINI_API_KEY)}
+        OPENROUTER_API_KEY: ${env(OPENROUTER_API_KEY)}
+        OPENROUTER_SITE_URL: https://www.geekteam.com
+        OPENROUTER_SITE_NAME: GeekTeam
+        OPENROUTER_BASE_URL: https://openrouter.ai/api/v1
+        OPENROUTER_MODEL: google/gemini-2.0-flash-lite-001
+        PORT: "3000"
+        AI_PROVIDER: openrouter
+        LAOZHANG_API_KEY: ${env(LAOZHANG_API_KEY)}
+        RATE_LIMIT_WINDOW_MS: "900000"
+        RATE_LIMIT_MAX_REQUESTS: "100"
+        FREE_USER_LIMIT: "3"
+        VIP_USER_LIMIT: "500"
+        LOG_LEVEL: info
+        # 敏感变量可在 deploy 时通过 --use-local-env 或控制台手动补齐
+      triggers:
+        - functionName: api
+          triggerName: httpTrigger
+          triggerType: http
+          triggerConfig:
+            authType: anonymous
+            methods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+      # customDomains not yet supported in fc3, configure via console if needed

@@ -90,7 +90,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    '加入GliTrip，开启智能旅行规划',
+                    '加入Glitrip AI，开启智能旅行规划',
                     textAlign: TextAlign.center,
                     style: theme.textTheme.bodyMedium?.copyWith(
                       color: theme.colorScheme.onSurfaceVariant,

@@ -6,6 +6,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../generated/l10n/app_localizations.dart';
 import '../../../ai_planning/presentation/providers/ai_create_provider.dart';
+import '../../../ai_planning/data/datasources/ai_planning_datasource_v2.dart'
+    show AIUsageModelV2;
+import '../../../auth/data/models/user_model.dart';
+import '../../../auth/presentation/providers/auth_provider.dart';
+import '../../../subscription/presentation/pages/vip_upgrade_page.dart';
 import 'ai_plan_preview_page.dart';
 
 class AICreateDestinationPage extends ConsumerStatefulWidget {
@@ -24,6 +29,14 @@ class _AICreateDestinationPageState
   String _selectedBudgetLevel = 'medium';
   DateTime? _startDate;
   DateTime? _endDate;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ref.invalidate(aiUsageV2Provider);
+    });
+  }
 
   @override
   void dispose() {
@@ -61,7 +74,7 @@ class _AICreateDestinationPageState
 
       if (plan != null) {
         // 成功：跳转到预览页面
-        Navigator.of(context).push(
+        await Navigator.of(context).push(
           MaterialPageRoute(
             builder: (context) => AIPlanPreviewPage(
               plan: plan,
@@ -72,6 +85,9 @@ class _AICreateDestinationPageState
             ),
           ),
         );
+        if (mounted) {
+          ref.invalidate(aiUsageV2Provider);
+        }
       } else {
         // 失败：显示错误消息
         final l10n = AppLocalizations.of(context);
@@ -119,6 +135,10 @@ class _AICreateDestinationPageState
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final aiUsage = ref.watch(aiUsageV2Provider);
+    final authState = ref.watch(authStateProvider);
+    final user = authState.user;
+    final usageData = aiUsage.asData?.value;
+    final usageToDisplay = usageData ?? _buildFallbackUsage(user);
 
     return Scaffold(
       appBar: AppBar(
@@ -166,59 +186,20 @@ class _AICreateDestinationPageState
                   ),
                 ],
               ),
-              const SizedBox(height: 32),
+              const SizedBox(height: 12),
 
-              // 配额显示
-              aiUsage.when(
-                data: (usage) {
-                  if (usage != null) {
-                    return Container(
-                      padding: const EdgeInsets.all(16),
-                      margin: const EdgeInsets.only(bottom: 24),
-                      decoration: BoxDecoration(
-                        color: usage.hasQuota
-                            ? Colors.green[50]
-                            : Colors.red[50],
-                        borderRadius: BorderRadius.circular(12),
-                        border: Border.all(
-                          color: usage.hasQuota
-                              ? Colors.green[200]!
-                              : Colors.red[200]!,
-                        ),
-                      ),
-                      child: Row(
-                        children: [
-                          Icon(
-                            usage.hasQuota
-                                ? Icons.check_circle
-                                : Icons.error,
-                            color: usage.hasQuota
-                                ? Colors.green[600]
-                                : Colors.red[600],
-                          ),
-                          const SizedBox(width: 12),
-                          Expanded(
-                            child: Text(
-                              usage.hasQuota
-                                  ? l10n.remainingAiPlans(usage.remainingQuota)
-                                  : l10n.aiQuotaExhausted,
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: usage.hasQuota
-                                    ? Colors.green[800]
-                                    : Colors.red[800],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    );
-                  }
-                  return const SizedBox.shrink();
-                },
-                loading: () => const SizedBox.shrink(),
-                error: (_, __) => const SizedBox.shrink(),
-              ),
+              // 会员 & 配额信息
+              if (aiUsage.isLoading && usageData == null)
+                const LinearProgressIndicator(minHeight: 3)
+              else
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 12),
+                  child: _buildMembershipCard(
+                    usage: usageToDisplay,
+                    user: user,
+                    l10n: l10n,
+                  ),
+                ),
 
               // 1. 目的地名称
               TextFormField(
@@ -421,6 +402,143 @@ class _AICreateDestinationPageState
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildMembershipCard({
+    required AIUsageModelV2 usage,
+    required UserModel? user,
+    required AppLocalizations l10n,
+  }) {
+    final isVip = usage.isVip;
+    final levelText = isVip ? l10n.membershipVip : l10n.membershipFree;
+    final levelColor = isVip ? const Color(0xFFB26A00) : const Color(0xFF0277BD);
+    final gradient = isVip
+        ? const LinearGradient(
+            colors: [Color(0xFFFFF3E0), Color(0xFFFFE0B2)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          )
+        : const LinearGradient(
+            colors: [Color(0xFFE1F5FE), Color(0xFFB3E5FC)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          );
+    final expiryText = user?.subscriptionEndDate != null
+        ? l10n.membershipExpiry(user!.subscriptionEndDate!)
+        : null;
+
+    return Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      elevation: 4,
+      shadowColor: Colors.black.withOpacity(0.08),
+      child: Container(
+        decoration: BoxDecoration(
+          gradient: gradient,
+          borderRadius: BorderRadius.circular(20),
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.75),
+                    shape: BoxShape.circle,
+                  ),
+                  child: Icon(
+                    isVip ? Icons.workspace_premium : Icons.card_membership,
+                    color: levelColor,
+                    size: 26,
+                  ),
+                ),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        levelText,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: levelColor,
+                        ),
+                      ),
+                      const SizedBox(height: 6),
+                      Text(
+                        l10n.aiUsageLimit(
+                          usage.usedCount,
+                          usage.totalQuota,
+                          usage.remainingQuota,
+                        ),
+                        style: TextStyle(
+                          fontSize: 13,
+                          color: Colors.grey[800],
+                        ),
+                      ),
+                      if (expiryText != null) ...[
+                        const SizedBox(height: 4),
+                        Text(
+                          expiryText,
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.grey[600],
+                          ),
+                        ),
+                      ],
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 12),
+            SizedBox(
+              width: double.infinity,
+              child: FilledButton.icon(
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const VIPUpgradePage(),
+                    ),
+                  );
+                },
+                icon: Icon(
+                  isVip ? Icons.autorenew : Icons.trending_up,
+                  size: 18,
+                ),
+                label: Text(
+                  isVip ? l10n.renewMembership : l10n.upgradeMembership,
+                  style: const TextStyle(fontSize: 13),
+                ),
+                style: FilledButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  backgroundColor: levelColor,
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(22),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  AIUsageModelV2 _buildFallbackUsage(UserModel? user) {
+    final isVip = user?.isVip ?? false;
+    final totalQuota = isVip ? 1000 : 3;
+    return AIUsageModelV2(
+      usedCount: 0,
+      totalQuota: totalQuota,
+      remainingQuota: totalQuota,
+      subscriptionType: isVip ? 'vip' : 'free',
     );
   }
 }

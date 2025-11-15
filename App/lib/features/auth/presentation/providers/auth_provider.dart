@@ -157,6 +157,23 @@ class AuthStateNotifier extends StateNotifier<AuthState> {
     state = AuthState();
   }
 
+  /// 删除账户
+  Future<String?> deleteAccount() async {
+    state = state.copyWith(isLoading: true, error: null);
+
+    try {
+      await _authDataSource.deleteAccount();
+      state = AuthState();
+      return null;
+    } on AuthException catch (e) {
+      state = state.copyWith(isLoading: false, error: e.friendlyMessage);
+      return e.friendlyMessage;
+    } catch (e) {
+      state = state.copyWith(isLoading: false, error: '操作失败，请稍后重试');
+      return '操作失败，请稍后重试';
+    }
+  }
+
   /// 清除错误
   void clearError() {
     state = state.copyWith(error: null);

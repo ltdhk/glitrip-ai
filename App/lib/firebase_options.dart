@@ -63,7 +63,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '592931375515',
     projectId: 'glitrip-ai',
     storageBucket: 'glitrip-ai.firebasestorage.app',
-    iosBundleId: 'com.geeklabs.glitrip',
+    iosBundleId: 'com.geeklabs.glitripai',
   );
 
 }

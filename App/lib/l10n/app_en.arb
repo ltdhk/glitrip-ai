@@ -1,7 +1,7 @@
 {
   "@@locale": "en",
   
-  "appTitle": "Glitrip Planner",
+  "appTitle": "Glitrip AI",
   "tagline": "Travel, Light.",
   
   "destinations": "Destinations",
@@ -17,6 +17,23 @@
   "travelDocuments": "Travel Documents",
   
   "myProfile": "My Profile",
+  "accountSettings": "Account & Support",
+  "logoutAction": "Log Out",
+  "logoutDescription": "Sign out of your current account",
+  "logoutSuccessMessage": "Logged out successfully",
+  "deleteAccountAction": "Delete Account",
+  "deleteAccountDescription": "Permanently remove your account and local data",
+  "deleteAccountSuccessMessage": "Your account has been deleted",
+  "contactUsAction": "Contact Us",
+  "contactUsDescription": "Get support or send feedback",
+  "contactDialogMessage": "We are here to help. Reach out anytime and we will respond as soon as possible.",
+  "contactEmailLabel": "Support Email",
+  "supportEmailAddress": "support@glitrip.com",
+  "emailCopiedMessage": "Email copied to clipboard",
+  "confirmLogoutTitle": "Confirm Logout",
+  "confirmLogoutMessage": "Are you sure you want to log out of your account?",
+  "confirmDeleteTitle": "Delete Account",
+  "confirmDeleteMessage": "This action will permanently remove your account and related data. This cannot be undone. Continue?",
   
   "searchDestinations": "Search destinations...",
   
@@ -86,9 +103,11 @@
   "travelNotes": "Travel Notes",
   
   "save": "Save",
-  
+
   "cancel": "Cancel",
-  
+
+  "copy": "Copy",
+
   "delete": "Delete",
   
   "edit": "Edit",
@@ -315,7 +334,36 @@
   "adventureAwaits": "Adventure awaits!",
   
   "travelStatistics": "Travel Statistics",
-  
+
+  "membershipLevel": "Membership Level",
+  "membershipFree": "Free Member",
+  "membershipVip": "VIP Member",
+  "membershipExpiry": "Valid until {date}",
+  "@membershipExpiry": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "aiUsageLimit": "AI quota: used {used}/{total}, remaining {remaining}",
+  "@aiUsageLimit": {
+    "placeholders": {
+      "used": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "remaining": {
+        "type": "int"
+      }
+    }
+  },
+  "upgradeOrRenewMembership": "Upgrade / Renew Membership",
+  "upgradeMembership": "Upgrade Membership",
+  "renewMembership": "Renew Membership",
+
   "total": "Total",
   
   "quickActions": "Quick Actions",

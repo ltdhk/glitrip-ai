@@ -1,5 +1,5 @@
 name: glitrip
-description: "Glitrip Planner - Travel Light, Plan Bright."
+description: "Glitrip AI - Travel Light, Plan Bright."
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -26,7 +26,7 @@ dependencies:
   flutter_staggered_animations: ^1.1.1
   
   # 工具类
-  intl: 0.20.2
+  intl: 0.19.0
   uuid: ^4.1.0
   
   # 图表

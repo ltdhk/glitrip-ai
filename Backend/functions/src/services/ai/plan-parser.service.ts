@@ -12,9 +12,19 @@ export class PlanParserService {
    * 解析JSON文本为结构化数据
    */
   parse(jsonText: string): AiDestinationPlan {
+    let candidate = jsonText;
+    const trimmed = candidate.trim();
+
+    if (trimmed.startsWith('```')) {
+      const extracted = this.extractJsonFromMarkdown(trimmed);
+      if (extracted) {
+        candidate = extracted;
+      }
+    }
+
     try {
       // 尝试直接解析JSON
-      const parsed = JSON.parse(jsonText);
+      const parsed = JSON.parse(candidate);
 
       // 验证必需字段
       this.validatePlan(parsed);

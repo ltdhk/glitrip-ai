@@ -35,7 +35,7 @@ class MyApp extends ConsumerWidget {
     final locale = ref.watch(localeProvider);
 
     return MaterialApp(
-      title: 'GliTrip',
+      title: 'Glitrip AI',
       locale: locale,
       localizationsDelegates: const [
         AppLocalizations.delegate,

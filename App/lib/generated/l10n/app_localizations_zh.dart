@@ -9,7 +9,7 @@ class AppLocalizationsZh extends AppLocalizations {
   AppLocalizationsZh([String locale = 'zh']) : super(locale);
 
   @override
-  String get appTitle => '轻松旅行';
+  String get appTitle => 'Glitrip AI';
 
   @override
   String get tagline => '合理规划，轻松出发';
@@ -34,6 +34,57 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get myProfile => '我的资料';
+
+  @override
+  String get accountSettings => '账户与支持';
+
+  @override
+  String get logoutAction => '退出登录';
+
+  @override
+  String get logoutDescription => '退出当前账号';
+
+  @override
+  String get logoutSuccessMessage => '已成功退出登录';
+
+  @override
+  String get deleteAccountAction => '删除账户';
+
+  @override
+  String get deleteAccountDescription => '永久删除账户及本地数据';
+
+  @override
+  String get deleteAccountSuccessMessage => '账户已成功删除';
+
+  @override
+  String get contactUsAction => '联系我们';
+
+  @override
+  String get contactUsDescription => '获取支持或反馈建议';
+
+  @override
+  String get contactDialogMessage => '我们随时为你提供帮助，欢迎随时联系我们，我们会尽快回复。';
+
+  @override
+  String get contactEmailLabel => '客服邮箱';
+
+  @override
+  String get supportEmailAddress => 'geek_labs@hotmail.com';
+
+  @override
+  String get emailCopiedMessage => '邮箱地址已复制';
+
+  @override
+  String get confirmLogoutTitle => '确认退出';
+
+  @override
+  String get confirmLogoutMessage => '确定要退出当前账号吗？';
+
+  @override
+  String get confirmDeleteTitle => '删除账户';
+
+  @override
+  String get confirmDeleteMessage => '此操作将永久删除账户及相关数据，且无法恢复，确认继续？';
 
   @override
   String get searchDestinations => '搜索目的地...';
@@ -132,6 +183,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get cancel => '取消';
+
+  @override
+  String get copy => '复制';
 
   @override
   String get delete => '删除';
@@ -403,6 +457,34 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get travelStatistics => '旅行统计';
+
+  @override
+  String get membershipLevel => '会员等级';
+
+  @override
+  String get membershipFree => '免费会员';
+
+  @override
+  String get membershipVip => 'VIP会员';
+
+  @override
+  String membershipExpiry(String date) {
+    return '有效期至 $date';
+  }
+
+  @override
+  String aiUsageLimit(int used, int total, int remaining) {
+    return 'AI行程配额：已使用 $used/$total，剩余 $remaining';
+  }
+
+  @override
+  String get upgradeOrRenewMembership => '升级/续费会员';
+
+  @override
+  String get upgradeMembership => '升级会员';
+
+  @override
+  String get renewMembership => '续订会员';
 
   @override
   String get total => '总数';

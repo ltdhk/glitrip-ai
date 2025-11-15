@@ -169,4 +169,35 @@ export class AuthService {
       throw new Error('密码至少需要8个字符');
     }
   }
+
+  /**
+   * 删除用户账户
+   */
+  async deleteAccount(userId: string): Promise<void> {
+    // 检查用户是否存在
+    const { data: existingUser, error: fetchError } = await supabase
+      .from('users')
+      .select('id')
+      .eq('id', userId)
+      .maybeSingle();
+
+    if (fetchError) {
+      console.error('Failed to fetch user before deletion:', fetchError);
+      throw new Error(ErrorCode.DATABASE_ERROR);
+    }
+
+    if (!existingUser) {
+      throw new Error(ErrorCode.USER_NOT_FOUND);
+    }
+
+    const { error: deleteError } = await supabase
+      .from('users')
+      .delete()
+      .eq('id', userId);
+
+    if (deleteError) {
+      console.error('Failed to delete user account:', deleteError);
+      throw new Error(ErrorCode.DATABASE_ERROR);
+    }
+  }
 }

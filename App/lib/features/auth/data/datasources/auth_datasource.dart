@@ -155,6 +155,45 @@ class AuthDataSource {
     }
   }
 
+  /// 删除账户
+  Future<void> deleteAccount() async {
+    try {
+      final token = await getToken();
+      if (token == null) {
+        throw AuthException('UNAUTHORIZED', '请先登录');
+      }
+
+      final response = await http
+          .delete(
+            Uri.parse(ApiConfig.authDelete),
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer $token',
+            },
+          )
+          .timeout(ApiConfig.timeout);
+
+      if (response.statusCode == 200 || response.statusCode == 204) {
+        await logout();
+        return;
+      }
+
+      final data = jsonDecode(response.body) as Map<String, dynamic>;
+      if (data['error'] is Map<String, dynamic>) {
+        final error = data['error'] as Map<String, dynamic>;
+        throw AuthException(
+          (error['code'] ?? 'INTERNAL_ERROR') as String,
+          (error['message'] ?? '操作失败，请稍后重试') as String,
+        );
+      }
+
+      throw AuthException('INTERNAL_ERROR', '操作失败，请稍后重试');
+    } catch (e) {
+      if (e is AuthException) rethrow;
+      throw AuthException('NETWORK_ERROR', '网络连接失败，请检查网络设置');
+    }
+  }
+
   /// 登出
   Future<void> logout() async {
     final prefs = await SharedPreferences.getInstance();

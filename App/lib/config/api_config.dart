@@ -7,7 +7,9 @@
 class ApiConfig {
   // 后端API基础URL
   // TODO: 部署后替换为实际的Cloud Function URL
-  static const String baseUrl = 'http://10.0.2.2:3000'; // 本地开发
+  //static const String baseUrl = 'http://10.0.2.2:3000'; // 本地开发
+  static const String baseUrl = 'https://glitrip.vercel.app';
+
   // static const String baseUrl = 'https://glitrip-api-xxx.a.run.app'; // 生产环境
 
   // ==========================================
@@ -17,6 +19,7 @@ class ApiConfig {
   static const String authLogin = '$baseUrl/api/v1/auth/login';
   static const String authMe = '$baseUrl/api/v1/auth/me';
   static const String authRefresh = '$baseUrl/api/v1/auth/refresh';
+  static const String authDelete = '$baseUrl/api/v1/auth/delete';
 
   // ==========================================
   // AI规划相关端点
@@ -28,9 +31,12 @@ class ApiConfig {
   // ==========================================
   // 订阅相关端点
   // ==========================================
-  static const String subscriptionCurrent = '$baseUrl/api/v1/subscriptions/current';
-  static const String subscriptionUpgrade = '$baseUrl/api/v1/subscriptions/upgrade';
-  static const String subscriptionCancel = '$baseUrl/api/v1/subscriptions/cancel';
+  static const String subscriptionCurrent =
+      '$baseUrl/api/v1/subscriptions/current';
+  static const String subscriptionUpgrade =
+      '$baseUrl/api/v1/subscriptions/upgrade';
+  static const String subscriptionCancel =
+      '$baseUrl/api/v1/subscriptions/cancel';
 
   // ==========================================
   // 工具端点

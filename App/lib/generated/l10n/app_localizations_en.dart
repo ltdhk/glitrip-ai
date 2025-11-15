@@ -9,7 +9,7 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get appTitle => 'Glitrip Planner';
+  String get appTitle => 'Glitrip AI';
 
   @override
   String get tagline => 'Travel, Light.';
@@ -34,6 +34,57 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get myProfile => 'My Profile';
+
+  @override
+  String get accountSettings => 'Account & Support';
+
+  @override
+  String get logoutAction => 'Log Out';
+
+  @override
+  String get logoutDescription => 'Sign out of your current account';
+
+  @override
+  String get logoutSuccessMessage => 'Logged out successfully';
+
+  @override
+  String get deleteAccountAction => 'Delete Account';
+
+  @override
+  String get deleteAccountDescription => 'Permanently remove your account and local data';
+
+  @override
+  String get deleteAccountSuccessMessage => 'Your account has been deleted';
+
+  @override
+  String get contactUsAction => 'Contact Us';
+
+  @override
+  String get contactUsDescription => 'Get support or send feedback';
+
+  @override
+  String get contactDialogMessage => 'We are here to help. Reach out anytime and we will respond as soon as possible.';
+
+  @override
+  String get contactEmailLabel => 'Support Email';
+
+  @override
+  String get supportEmailAddress => 'support@glitrip.com';
+
+  @override
+  String get emailCopiedMessage => 'Email copied to clipboard';
+
+  @override
+  String get confirmLogoutTitle => 'Confirm Logout';
+
+  @override
+  String get confirmLogoutMessage => 'Are you sure you want to log out of your account?';
+
+  @override
+  String get confirmDeleteTitle => 'Delete Account';
+
+  @override
+  String get confirmDeleteMessage => 'This action will permanently remove your account and related data. This cannot be undone. Continue?';
 
   @override
   String get searchDestinations => 'Search destinations...';
@@ -133,6 +184,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get cancel => 'Cancel';
+
+  @override
+  String get copy => 'Copy';
 
   @override
   String get delete => 'Delete';
@@ -408,6 +462,34 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get travelStatistics => 'Travel Statistics';
+
+  @override
+  String get membershipLevel => 'Membership Level';
+
+  @override
+  String get membershipFree => 'Free Member';
+
+  @override
+  String get membershipVip => 'VIP Member';
+
+  @override
+  String membershipExpiry(String date) {
+    return 'Valid until $date';
+  }
+
+  @override
+  String aiUsageLimit(int used, int total, int remaining) {
+    return 'AI quota: used $used/$total, remaining $remaining';
+  }
+
+  @override
+  String get upgradeOrRenewMembership => 'Upgrade / Renew Membership';
+
+  @override
+  String get upgradeMembership => 'Upgrade Membership';
+
+  @override
+  String get renewMembership => 'Renew Membership';
 
   @override
   String get total => 'Total';

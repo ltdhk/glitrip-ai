@@ -380,7 +380,7 @@ class _DestinationsPageState extends ConsumerState<DestinationsPage>
                   onPressed: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => const AddDestinationPage(),
+                        builder: (context) => const AICreateDestinationPage(),
                       ),
                     );
                   },

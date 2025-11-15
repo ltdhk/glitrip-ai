@@ -1,7 +1,7 @@
 {
   "@@locale": "zh",
   
-  "appTitle": "轻松旅行",
+  "appTitle": "Glitrip AI",
   "tagline": "合理规划，轻松出发",
   
   "destinations": "目的地",
@@ -17,6 +17,23 @@
   "travelDocuments": "旅行文档",
   
   "myProfile": "我的资料",
+  "accountSettings": "账户与支持",
+  "logoutAction": "退出登录",
+  "logoutDescription": "退出当前账号",
+  "logoutSuccessMessage": "已成功退出登录",
+  "deleteAccountAction": "删除账户",
+  "deleteAccountDescription": "永久删除账户及本地数据",
+  "deleteAccountSuccessMessage": "账户已成功删除",
+  "contactUsAction": "联系我们",
+  "contactUsDescription": "获取支持或反馈建议",
+  "contactDialogMessage": "我们随时为你提供帮助，欢迎随时联系我们，我们会尽快回复。",
+  "contactEmailLabel": "客服邮箱",
+  "supportEmailAddress": "geek_labs@hotmail.com",
+  "emailCopiedMessage": "邮箱地址已复制",
+  "confirmLogoutTitle": "确认退出",
+  "confirmLogoutMessage": "确定要退出当前账号吗？",
+  "confirmDeleteTitle": "删除账户",
+  "confirmDeleteMessage": "此操作将永久删除账户及相关数据，且无法恢复，确认继续？",
   
   "searchDestinations": "搜索目的地...",
   
@@ -86,9 +103,11 @@
   "travelNotes": "旅行笔记",
   
   "save": "保存",
-  
+
   "cancel": "取消",
-  
+
+  "copy": "复制",
+
   "delete": "删除",
   
   "edit": "编辑",
@@ -315,7 +334,36 @@
   "adventureAwaits": "新的冒险等待着！",
   
   "travelStatistics": "旅行统计",
-  
+
+  "membershipLevel": "会员等级",
+  "membershipFree": "免费会员",
+  "membershipVip": "VIP会员",
+  "membershipExpiry": "有效期至 {date}",
+  "@membershipExpiry": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "aiUsageLimit": "AI行程配额：已使用 {used}/{total}，剩余 {remaining}",
+  "@aiUsageLimit": {
+    "placeholders": {
+      "used": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "remaining": {
+        "type": "int"
+      }
+    }
+  },
+  "upgradeOrRenewMembership": "升级/续费会员",
+  "upgradeMembership": "升级会员",
+  "renewMembership": "续订会员",
+
   "total": "总数",
   
   "quickActions": "快捷操作",

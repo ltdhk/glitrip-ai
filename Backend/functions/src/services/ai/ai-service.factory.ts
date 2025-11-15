@@ -6,6 +6,7 @@
 
 import { GeminiService } from './gemini.service';
 import { LaozhangService } from './laozhang.service';
+import { OpenRouterService } from './openrouter.service';
 import { PlanningContext, AiDestinationPlan } from '../../models';
 
 /**
@@ -24,7 +25,7 @@ export interface IAiService {
 /**
  * 支持的AI提供商类型
  */
-export type AiProvider = 'google' | 'laozhang';
+export type AiProvider = 'google' | 'laozhang' | 'openrouter';
 
 /**
  * AI服务工厂类
@@ -45,6 +46,9 @@ export class AiServiceFactory {
 
       case 'laozhang':
         return new LaozhangService();
+
+      case 'openrouter':
+        return new OpenRouterService();
 
       default:
         console.warn(
@@ -73,6 +77,9 @@ export class AiServiceFactory {
         case 'laozhang':
           return !!process.env.LAOZHANG_API_KEY;
 
+        case 'openrouter':
+          return !!process.env.OPENROUTER_API_KEY;
+
         default:
           return false;
       }
@@ -93,6 +100,10 @@ export class AiServiceFactory {
 
     if (this.isProviderAvailable('laozhang')) {
       providers.push('laozhang');
+    }
+
+    if (this.isProviderAvailable('openrouter')) {
+      providers.push('openrouter');
     }
 
     return providers;

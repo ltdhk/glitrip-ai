@@ -8,6 +8,7 @@ import '../../../destinations/domain/entities/destination.dart';
 import 'add_packing_item_page.dart';
 import 'template_selection_page.dart';
 import '../../../../ad_helper.dart';
+import '../../../auth/presentation/providers/auth_provider.dart';
 
 class DestinationPackingPage extends ConsumerStatefulWidget {
   final Destination destination;
@@ -70,6 +71,9 @@ class _DestinationPackingPageState
       packingStatsByDestinationProvider(widget.destination.id),
     );
 
+    final authState = ref.watch(authStateProvider);
+    final showAds = !(authState.user?.isVip ?? false);
+
     return Scaffold(
       appBar: AppBar(
         title: Text('${widget.destination.name} - ${l10n.packing}'),
@@ -89,7 +93,14 @@ class _DestinationPackingPageState
         ],
       ),
       body: packingItemsAsync.when(
-        data: (items) => _buildContent(context, ref, l10n, items, statsAsync),
+        data: (items) => _buildContent(
+          context,
+          ref,
+          l10n,
+          items,
+          statsAsync,
+          showAds,
+        ),
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (error, stackTrace) => Center(
           child: Column(
@@ -127,6 +138,7 @@ class _DestinationPackingPageState
     AppLocalizations l10n,
     List<PackingItem> items,
     AsyncValue<Map<String, dynamic>> statsAsync,
+    bool showAds,
   ) {
     return SingleChildScrollView(
       child: Column(
@@ -135,7 +147,7 @@ class _DestinationPackingPageState
           _buildProgressOverview(l10n, statsAsync),
 
           // 小尺寸原生广告
-          if (_isNativeAdLoaded && _nativeAd != null)
+          if (showAds && _isNativeAdLoaded && _nativeAd != null)
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               height: 136, // 调整高度以容纳120x120的媒体视图

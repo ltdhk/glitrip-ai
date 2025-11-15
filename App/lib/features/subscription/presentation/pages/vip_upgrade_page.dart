@@ -5,7 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../auth/presentation/providers/auth_provider.dart';
-import '../../../ai_planning/presentation/providers/ai_planning_provider.dart';
+import '../../../ai_planning/presentation/providers/ai_create_provider.dart';
 
 class VIPUpgradePage extends ConsumerWidget {
   const VIPUpgradePage({super.key});
@@ -13,7 +13,7 @@ class VIPUpgradePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final currentUser = ref.watch(currentUserProvider);
-    final aiUsage = ref.watch(aiUsageProvider);
+    final aiUsage = ref.watch(aiUsageV2Provider);
     final theme = Theme.of(context);
 
     return Scaffold(
@@ -40,6 +40,7 @@ class VIPUpgradePage extends ConsumerWidget {
                 ),
               ),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Icon(
                     Icons.workspace_premium,
@@ -48,7 +49,7 @@ class VIPUpgradePage extends ConsumerWidget {
                   ),
                   const SizedBox(height: 16),
                   const Text(
-                    'GliTrip VIP会员',
+                    'Glitrip AI VIP会员',
                     style: TextStyle(
                       fontSize: 28,
                       fontWeight: FontWeight.bold,
@@ -61,6 +62,75 @@ class VIPUpgradePage extends ConsumerWidget {
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.white70,
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 28,
+                      vertical: 14,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.15),
+                      borderRadius: BorderRadius.circular(40),
+                      border:
+                          Border.all(color: Colors.white.withOpacity(0.25)),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: const [
+                        Text(
+                          '\$',
+                          style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                        SizedBox(width: 4),
+                        Text(
+                          '9.9',
+                          style: TextStyle(
+                            fontSize: 46,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                        SizedBox(width: 8),
+                        Padding(
+                          padding: EdgeInsets.only(bottom: 6),
+                          child: Text(
+                            '/年',
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.white70,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  SizedBox(
+                    width: double.infinity,
+                    child: FilledButton(
+                      onPressed: () => _handleUpgrade(context, ref),
+                      style: FilledButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        foregroundColor: const Color(0xFF00BCD4),
+                        padding: const EdgeInsets.symmetric(vertical: 16),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                      ),
+                      child: const Text(
+                        '立即升级',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                   ),
                 ],
@@ -223,94 +293,6 @@ class VIPUpgradePage extends ConsumerWidget {
                     theme,
                   ),
                 ],
-              ),
-            ),
-
-            // Pricing
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Container(
-                padding: const EdgeInsets.all(24),
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [
-                      const Color(0xFF00BCD4).withOpacity(0.1),
-                      const Color(0xFF00BCD4).withOpacity(0.05),
-                    ],
-                  ),
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(
-                    color: const Color(0xFF00BCD4).withOpacity(0.3),
-                  ),
-                ),
-                child: Column(
-                  children: [
-                    const Text(
-                      'VIP会员价格',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(height: 16),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          '¥',
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xFF00BCD4),
-                          ),
-                        ),
-                        const Text(
-                          '99',
-                          style: TextStyle(
-                            fontSize: 48,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xFF00BCD4),
-                          ),
-                        ),
-                        const SizedBox(width: 8),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 12),
-                          child: Text(
-                            '/年',
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.grey[600],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 24),
-                    SizedBox(
-                      width: double.infinity,
-                      child: FilledButton(
-                        onPressed: () => _handleUpgrade(context, ref),
-                        style: FilledButton.styleFrom(
-                          backgroundColor: const Color(0xFF00BCD4),
-                          padding: const EdgeInsets.symmetric(vertical: 16),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                        ),
-                        child: const Text(
-                          '立即升级',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
               ),
             ),
 
